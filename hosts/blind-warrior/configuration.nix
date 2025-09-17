@@ -58,23 +58,12 @@
   #   useXkbConfig = true; # use xkb.options in tty.
   # };
 
-  users.users.rakhat = {
-    isNormalUser = true;
-    description = "rakhat";
-    extraGroups = [ "wheel" "networkmanager" ]; # Enable ‘sudo’ for the user.
-    packages = with pkgs; [];
-  };
-
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
   environment.systemPackages = with pkgs; [
      neovim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
      git
-     alacritty
-     wl-clipboard
-     tmux
-     wofi
    ];
 
   # programs.mtr.enable = true;
@@ -89,14 +78,16 @@
     allowSFTP = true;
   };
 
-  services.xserver.enable = true;
-  services.xserver.displayManager.gdm.enable = true;
-  services.xserver.desktopManager.gnome.enable = true;
+  # services.xserver.enable = true;
+  # services.xserver.displayManager.gdm.enable = true;
+  # services.xserver.desktopManager.gnome.enable = true;
 
   programs.hyprland = {
     enable = true;
     xwayland.enable = true;
   };
+
+  programs.zsh.enable = true;
 
   environment.sessionVariables = {
     # WLR_NO_HARDWARE_CURSOR = "1";
