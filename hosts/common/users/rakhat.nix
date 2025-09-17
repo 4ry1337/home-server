@@ -4,7 +4,7 @@
   inputs,
   ...
 }: {
-  users.users.m3tam3re = {
+  users.users.rakhat = {
     initialHashedPassword = "$y$j9T$FpPS/JnWHSCjY3pc6/VeU/$Z2GFHBeWdtF6/o6p7vb93tKcYHx/V5brp.a2N3dcjhA";
     isNormalUser = true;
     description = "rakhat";
