@@ -1,10 +1,6 @@
 # Common configuration for all hosts
-{
-  lib,
-  inputs,
-  outputs,
-  ...
-}: {
+
+{ lib, inputs, outputs, ... }: {
   nixpkgs = {
     # You can add overlays here
     overlays = [
@@ -40,12 +36,11 @@
     };
     gc = {
       automatic = true;
-      options = "--delete-older-than 30d";
+      options = "--delete-older-than 7d";
     };
     optimise.automatic = true;
-    registry =
-      (lib.mapAttrs (_: flake: {inherit flake;}))
+    registry = (lib.mapAttrs (_: flake: { inherit flake; }))
       ((lib.filterAttrs (_: lib.isType "flake")) inputs);
-    nixPath = ["/etc/nix/path"];
+    nixPath = [ "/etc/nix/path" ];
   };
 }
