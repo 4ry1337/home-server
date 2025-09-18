@@ -13,8 +13,7 @@
     };
   };
 
-  outputs =
-    { self, home-manager, nixpkgs, dotfiles, alacritty-theme, ... }@inputs:
+  outputs = { self, home-manager, nixpkgs, dotfiles, ... }@inputs:
     let
       inherit (self) outputs;
       systems = [
