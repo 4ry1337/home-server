@@ -1,5 +1,6 @@
 { config, ... }: {
   imports = [ ./home.nix ../common ../features/cli ../features/desktop ];
+    ../features/apps
 
   features = {
     cli = {
@@ -9,6 +10,7 @@
       fzf.enable = true;
       fastfetch.enable = true;
     };
+    apps = { alacritty.enable = true; };
   };
 }
 

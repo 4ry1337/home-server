@@ -18,4 +18,3 @@
 
   home.packages = with pkgs; [ fzf fd jq ripgrep zip unzip ];
 }
-

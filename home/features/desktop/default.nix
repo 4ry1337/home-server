@@ -1,5 +1,5 @@
 { pkgs, ... }: {
-  imports = [ ./wayland.nix ];
+  imports = [ ./wayland.nix ./hyperland.nix ];
 
   home.packages = with pkgs; [ ];
 }
