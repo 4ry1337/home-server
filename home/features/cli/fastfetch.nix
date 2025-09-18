@@ -5,5 +5,5 @@ in {
   options.features.cli.fastfetch.enable =
     mkEnableOption "enable extended fastfetch configuration";
 
-  config = mkIf cfg.enable { home.manager = with pkgs; [ fastfetch ]; };
+  config = mkIf cfg.enable { home.packages = with pkgs; [ fastfetch ]; };
 }
