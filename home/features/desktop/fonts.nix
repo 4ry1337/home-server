@@ -8,7 +8,7 @@ in {
   config = mkIf cfg.enable {
     home.packages = with pkgs; [
       openmoji-color
-      (nerdfonts.override { fonts = [ "IosevkaTerm" ]; })
+      (nerdfonts.override { fonts = [ "IosevkaTerm" "Iosevka" ]; })
     ];
   };
 }
