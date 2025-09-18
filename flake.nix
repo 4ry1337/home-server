@@ -7,9 +7,6 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-25.05";
 
-    # Alacritty theme
-    alacritty-theme.url = "github:alexghr/alacritty-theme.nix";
-
     dotfiles = {
       url = "git+https://github.com/4ry1337/dotfiles.git";
       flake = false;
