@@ -93,7 +93,11 @@
 
   hardware = {
     graphics.enable = true;
-    nvidia.modesetting.enable = true;
+    nvidia = {
+      modesetting.enable = true;
+      owerManagement.enable = true;
+      nvidiaSettings = true;
+    };
   };
 
   # Open ports in the firewall.
