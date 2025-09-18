@@ -8,7 +8,6 @@ in {
     home.packages = with pkgs; [ alacritty ];
     programs.alacritty = {
       enable = true;
-      theme = "tokyo-night";
       settings = {
         window = {
           decorations = "Full";
