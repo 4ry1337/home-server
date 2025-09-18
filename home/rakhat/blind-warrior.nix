@@ -1,6 +1,7 @@
 { config, ... }: {
   imports = [
     ./home.nix
+    ./dotfiles
     ../common
     ../features/cli
     ../features/apps
