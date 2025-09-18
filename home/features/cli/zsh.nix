@@ -8,7 +8,7 @@ in {
   config = mkIf cfg.enable {
     programs.zsh = {
       enable = true;
-      loginVariables = ''
+      loginExtra = ''
         export NIX_PATH="nixpkgs=channel:nixos-unstable"
         export NIX_LOG=info
       '';
