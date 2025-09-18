@@ -6,6 +6,7 @@
     ../features/cli
     ../features/apps
     ../features/desktop
+    ../features/languages
   ];
 
   features = {
