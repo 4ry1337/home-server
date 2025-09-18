@@ -78,38 +78,6 @@ in {
 
         gestures = { workspace_swipe_touch = true; };
 
-        windowrule = [
-          "float, file_progress"
-          "float, confirm"
-          "float, dialog"
-          "float, download"
-          "float, notification"
-          "float, error"
-          "float, splash"
-          "float, confirmreset"
-          "float, title:Open File"
-          "float, title:branchdialog"
-          "float, Lxappearance"
-          "float, Wofi"
-          "float, dunst"
-          "animation none,Wofi"
-          "float,viewnior"
-          "float,feh"
-          "float, pavucontrol-qt"
-          "float, pavucontrol"
-          "float, file-roller"
-          "fullscreen, wlogout"
-          "float, title:wlogout"
-          "fullscreen, title:wlogout"
-          "idleinhibit focus, mpv"
-          "idleinhibit fullscreen, firefox"
-          "float, title:^(Media viewer)$"
-          "float, title:^(Volume Control)$"
-          "float, title:^(Picture-in-Picture)$"
-          "size 800 600, title:^(Volume Control)$"
-          "move 75 44%, title:^(Volume Control)$"
-        ];
-
         "$mainMod" = "SUPER";
 
         bind = [
