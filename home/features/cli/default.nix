@@ -1,5 +1,5 @@
 { pkgs, ... }: {
-  imports = [ ./zsh.nix ./fzf.nix ./tmux.nix ./neovim.nix ];
+  imports = [ ./zsh.nix ./fzf.nix ./fastfetch.nix ./tmux.nix ./neovim.nix ];
 
   programs.zoxide = {
     enable = true;
