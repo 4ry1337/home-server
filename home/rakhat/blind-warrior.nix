@@ -1,6 +1,11 @@
 { config, ... }: {
-  imports = [ ./home.nix ../common ../features/cli ../features/desktop ];
+  imports = [
+    ./home.nix
+    ../common
+    ../features/cli
     ../features/apps
+    ../features/desktop
+  ];
 
   features = {
     cli = {
@@ -11,6 +16,10 @@
       fastfetch.enable = true;
     };
     apps = { alacritty.enable = true; };
+    desktop = {
+      hyprland.enable = true;
+      wayland.enable = true;
+    };
   };
 }
 
