@@ -12,7 +12,12 @@ in {
 
         exec-once = [ "waybar" "hyprpaper" "hypridle" ];
 
-        env = [ "XCURSOR_SIZE,24" "QT_QPA_PLATFORMTHEME,qt5ct" ];
+        env = [
+          "XCURSOR_SIZE,24"
+          "WLR_NO_HARDWARE_CURSORS,1"
+          "GTK_THEME,Dracula"
+          "QT_QPA_PLATFORMTHEME,qt5ct"
+        ];
 
         input = {
           kb_layout = "us";
@@ -35,18 +40,20 @@ in {
         };
 
         decoration = {
-          "col.shadow" = "rgba(1a1a1aee)";
-          drop_shadow = true;
-          shadow_range = 4;
-          shadow_render_power = 3;
           rounding = 10;
+          active_opacity = 0.9;
+          inactive_opacity = 0.5;
+          shadow = {
+            enabled = true;
+            range = 4;
+            render_power = 3;
+            color = "rgba(1a1a1aee)";
+          };
           blur = {
             enabled = true;
             size = 3;
             passes = 1;
           };
-          active_opacity = 0.9;
-          inactive_opacity = 0.5;
         };
 
         animations = {
