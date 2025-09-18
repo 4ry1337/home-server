@@ -8,6 +8,10 @@ in {
   config = mkIf cfg.enable {
     programs.zsh = {
       enable = true;
+      loginVariables = ''
+        export NIX_PATH="nixpkgs=channel:nixos-unstable"
+        export NIX_LOG=info
+      '';
       history.size = 10000;
       history.path = "${config.xdg.dataHome}/zsh/history";
       shellAliases = {
@@ -21,7 +25,7 @@ in {
         mkdir = "mkdir -p";
       };
       oh-my-zsh = {
-        enable = false;
+        enable = true;
         plugins =
           [ "git" "sudo" "aws" "kubectl" "kubectx" "rust" "command-not-found" ];
       };
