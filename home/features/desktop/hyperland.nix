@@ -76,7 +76,7 @@ in {
 
         master = { };
 
-        gestures = { workspace_swipe = false; };
+        gestures = { workspace_swipe_touch = true; };
 
         /* windowrule = [
              "float, file_progress"
