@@ -1,1 +1,1 @@
-{ import = [ ./echo.nix ]; }
+{ imports = [ ./echo.nix ]; }

@@ -1,5 +1,1 @@
-{ pkgs, ... }: {
-  imports = [ ./alacritty.nix ];
-
-  home.packages = with pkgs; [ alacritty ];
-}
+{ imports = [ ./alacritty.nix ]; }

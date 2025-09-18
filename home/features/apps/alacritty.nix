@@ -6,6 +6,7 @@ in {
     mkEnableOption "enable extended alacritty configuration";
 
   config = mkIf cfg.enable {
+    home.packages = with pkgs; [ alacritty ];
     programs.alacritty = {
       enable = true;
       package = pkgs.unstable.alacritty;

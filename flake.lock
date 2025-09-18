@@ -1,5 +1,21 @@
 {
   "nodes": {
+    "dotfiles": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1757777431,
+        "narHash": "sha256-BWwZshKbl7BUDoddu2CU+yVptzBe50H6AUNHIXMh1SQ=",
+        "ref": "refs/heads/master",
+        "rev": "53da4398683d932ad59fa63118defef4ccc9ea29",
+        "revCount": 80,
+        "type": "git",
+        "url": "https://github.com/4ry1337/dotfiles.git"
+      },
+      "original": {
+        "type": "git",
+        "url": "https://github.com/4ry1337/dotfiles.git"
+      }
+    },
     "home-manager": {
       "inputs": {
         "nixpkgs": [
@@ -54,6 +70,7 @@
     },
     "root": {
       "inputs": {
+        "dotfiles": "dotfiles",
         "home-manager": "home-manager",
         "nixpkgs": "nixpkgs",
         "nixpkgs-stable": "nixpkgs-stable"

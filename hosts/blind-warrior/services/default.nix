@@ -1,1 +1,1 @@
-{ import = [ ./containers ]; }
+{ imports = [ ./containers ]; }

@@ -5,7 +5,7 @@ in {
   options.extra_services.podman.enable = mkEnableOption "Enable Podman";
 
   config = mkIf cfg.enable {
-    virtualization = {
+    virtualisation = {
       podman = {
         enable = true;
         dockerCompat = true;
@@ -17,6 +17,6 @@ in {
         defaultNetwork.settings.dns_enabled = true;
       };
     };
-    environemnt.systemPackage = with pkgs; [ podman-compose ];
+    environment.systemPackages = with pkgs; [ podman-compose ];
   };
 }
