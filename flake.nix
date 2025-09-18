@@ -7,13 +7,18 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-25.05";
 
+    disko = {
+      url = "github:nix-community/disko";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     dotfiles = {
       url = "git+https://github.com/4ry1337/dotfiles.git";
       flake = false;
     };
   };
 
-  outputs = { self, home-manager, nixpkgs, dotfiles, ... }@inputs:
+  outputs = { self, home-manager, nixpkgs, disko, dotfiles, ... }@inputs:
     let
       inherit (self) outputs;
       systems = [
@@ -31,7 +36,7 @@
       nixosConfigurations = {
         blind-warrior = nixpkgs.lib.nixosSystem {
           specialArgs = { inherit inputs outputs; };
-          modules = [ ./hosts/blind-warrior ];
+          modules = [ ./hosts/blind-warrior inputs.disko.nixosModules.disko ];
         };
       };
       homeConfigurations = {
