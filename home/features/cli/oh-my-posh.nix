@@ -8,6 +8,7 @@ in {
     programs.oh-my-posh = {
       enable = true;
       enableZshIntegration = true;
+      configFile = "${config.xdg.configHome}/oh-my-posh/zen.toml";
     };
   };
 }
