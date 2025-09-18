@@ -1,1 +1,5 @@
-{ imports = [ ./alacritty.nix ]; }
+{ pkgs, ... }: {
+  imports = [ ./alacritty.nix ];
+  home.packages = with pkgs; [ firefox ];
+}
+
