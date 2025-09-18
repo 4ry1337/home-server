@@ -40,6 +40,9 @@ in {
           italic = iosevka "Italic";
           bold_italic = iosevka "Bold Italic";
         };
+
+        general.live_config_reload = true;
+
         colors = {
           draw_bold_text_with_bright_colors = true;
           transparent_background_colors = true;
@@ -82,8 +85,6 @@ in {
         ];
 
         env = { TERM = "xterm-256color"; };
-
-        live_config_reload = true;
       };
     };
   };
