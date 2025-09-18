@@ -6,9 +6,6 @@ in {
     mkEnableOption "install additional fonts for desktop apps";
 
   config = mkIf cfg.enable {
-    home.packages = with pkgs; [
-      openmoji-color
-      (nerdfonts.override { fonts = [ "IosevkaTerm" "Iosevka" ]; })
-    ];
+    home.packages = with pkgs; [ openmoji-color nerd-fonts.iosevka ];
   };
 }
