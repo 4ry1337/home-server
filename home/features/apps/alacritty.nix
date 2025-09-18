@@ -2,7 +2,6 @@
 with lib;
 let cfg = config.features.apps.alacritty;
 in {
-  inputs.alacritty-theme.url = "github:alexghr/alacritty-theme.nix";
   options.features.apps.alacritty.enable = mkEnableOption "Enable Alacritty";
 
   config = mkIf cfg.enable {
