@@ -1,9 +1,6 @@
-{
-  config,
-  lib,
-  ...
-}:
-with lib; let
+{ config, lib, ... }:
+with lib;
+let
   cfg = config.features.cli.tmux;
   tokyo-night = pkgs.tmuxPlugins.mkTmuxPlugin {
     pluginName = "tokyo-night";
@@ -16,7 +13,8 @@ with lib; let
     };
   };
 in {
-  options.features.cli.tmux.enable = mkEnableOption "enable extended tmux configuration";
+  options.features.cli.tmux.enable =
+    mkEnableOption "enable extended tmux configuration";
 
   config = mkIf cfg.enable {
     programs.tmux = {
@@ -92,6 +90,6 @@ in {
 
         run-shell ${tokyo-night}/share/tmux-plugins/tokyo-night/tokyo-night.tmux
       '';
-    }
+    };
   };
 }

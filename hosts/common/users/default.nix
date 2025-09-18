@@ -1,3 +1,1 @@
-{
-  imports = [ ./rakhat.nix ];
-}
+{ imports = [ ./rakhat.nix ]; }

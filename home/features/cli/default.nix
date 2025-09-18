@@ -1,9 +1,5 @@
-{pkgs, ...}: {
-  imports = [
-    ./zsh.nix
-    ./tmux.nix
-    ./neovim.nix
-  ];
+{ pkgs, ... }: {
+  imports = [ ./zsh.nix ./fzf.nix ./tmux.nix ./neovim.nix ];
 
   programs.zoxide = {
     enable = true;
@@ -15,18 +11,11 @@
     enable = true;
     enableZshIntegration = true;
     enableBashIntegration = true;
-    extraOptions = ["-l" "--icons" "--git" "-a"];
+    extraOptions = [ "-l" "--icons" "--git" "-a" ];
   };
 
-  programs.bat = {enable = true;};
+  programs.bat = { enable = true; };
 
-  home.packages = with pkgs; [
-    fzf
-    fd
-    jq
-    ripgrep
-    zip
-    unzip
-  ];
+  home.packages = with pkgs; [ fzf fd jq ripgrep zip unzip ];
 }
 

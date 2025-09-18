@@ -1,12 +1,9 @@
-{
-  config,
-  lib,
-  ...
-}:
-with lib; let
-  cfg = config.features.cli.zsh;
+{ config, lib, ... }:
+with lib;
+let cfg = config.features.cli.zsh;
 in {
-  options.features.cli.zsh.enable = mkEnableOption "enable extended zsh configuration";
+  options.features.cli.zsh.enable =
+    mkEnableOption "enable extended zsh configuration";
 
   config = mkIf cfg.enable {
     programs.zsh = {
@@ -15,19 +12,18 @@ in {
       history.path = "${config.xdg.dataHome}/zsh/history";
       shellAliases = {
         vim = "nvim";
-        ls="ls -p -G";
-        la="ls -A";
-        ll="eza -l -g --icons";
-        lla="ll -a";
-        c="clear";
-        ".."="cd ..";
-        mkdir="mkdir -p";
+        ls = "ls -p -G";
+        la = "ls -A";
+        ll = "eza -l -g --icons";
+        lla = "ll -a";
+        c = "clear";
+        ".." = "cd ..";
+        mkdir = "mkdir -p";
       };
       oh-my-zsh = {
         enable = false;
-        plugins = [
-           "git" "sudo" "aws" "kubectl" "kubectx" "rust" "command-not-found" 
-        ];
+        plugins =
+          [ "git" "sudo" "aws" "kubectl" "kubectx" "rust" "command-not-found" ];
       };
       plugins = [
         {
