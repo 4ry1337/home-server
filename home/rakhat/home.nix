@@ -79,4 +79,10 @@
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
+  programs.neovim = {
+    enable = true;
+    defaultEditor = true;
+    viAlias = true;
+    vimAlias = true;
+  };
 }

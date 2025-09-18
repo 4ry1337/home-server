@@ -14,6 +14,7 @@ in {
       history.size = 10000;
       history.path = "${config.xdg.dataHome}/zsh/history";
       shellAliases = {
+        vim = "nvim";
         ls="ls -p -G";
         la="ls -A";
         ll="eza -l -g --icons";
