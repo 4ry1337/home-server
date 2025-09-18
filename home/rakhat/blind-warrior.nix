@@ -7,6 +7,7 @@
       tmux.enable = true;
       neovim.enable = true;
       fzf.enable = true;
+      fastfetch.enable = true;
     };
   };
 }
