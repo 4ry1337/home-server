@@ -28,7 +28,7 @@ in {
           kb_options = "";
           follow_mouse = 1;
 
-          touchpad = { natural_scroll = no; };
+          touchpad = { natural_scroll = false; };
 
           sensitivity = 0;
         };
@@ -51,7 +51,7 @@ in {
             passes = 1;
           };
 
-          drop_shadow = yes;
+          drop_shadow = true;
           shadow_range = 4;
           shadow_render_power = 3;
           "col.shadow" = "rgba(1a1a1aee)";

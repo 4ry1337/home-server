@@ -1,4 +1,4 @@
-{ config, ... }: {
+{
   imports = [
     ./home.nix
     ./dotfiles
@@ -16,7 +16,7 @@
       fzf.enable = true;
       fastfetch.enable = true;
     };
-    apps = { alacritty.enable = true; };
+    apps.alacritty.enable = true;
     desktop = {
       hyprland.enable = true;
       wayland.enable = true;
@@ -24,4 +24,3 @@
     };
   };
 }
-

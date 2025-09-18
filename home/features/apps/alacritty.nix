@@ -2,14 +2,13 @@
 with lib;
 let cfg = config.features.apps.alacritty;
 in {
-  options.features.cli.alacritty.enable =
-    mkEnableOption "enable extended alacritty configuration";
+  options.features.apps.alacritty.enable = mkEnableOption "Enable Alacritty";
 
   config = mkIf cfg.enable {
     home.packages = with pkgs; [ alacritty ];
     programs.alacritty = {
       enable = true;
-      package = pkgs.unstable.alacritty;
+      theme = "tokyo-night";
       settings = {
         window = {
           decorations = "Full";
@@ -23,7 +22,7 @@ in {
           };
         };
 
-        import = [ pkgs.alacritty-theme.tokyo-night ];
+        # import = [ alacritty-theme.tokyo-night ];
 
         font = let
           iosevkaTerm = style: {
