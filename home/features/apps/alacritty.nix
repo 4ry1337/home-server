@@ -2,6 +2,7 @@
 with lib;
 let cfg = config.features.apps.alacritty;
 in {
+  inputs.alacritty-theme.url = "github:alexghr/alacritty-theme.nix";
   options.features.apps.alacritty.enable = mkEnableOption "Enable Alacritty";
 
   config = mkIf cfg.enable {
@@ -22,7 +23,7 @@ in {
           };
         };
 
-        # import = [ alacritty-theme.tokyo-night ];
+        import = [ pkgs.alacritty-theme.tokyo-night ];
 
         font = let
           iosevkaTerm = style: {
