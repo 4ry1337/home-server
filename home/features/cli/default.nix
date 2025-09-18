@@ -1,6 +1,8 @@
 {pkgs, ...}: {
   imports = [
     ./zsh.nix
+    ./tmux.nix
+    ./neovim.nix
   ];
 
   programs.zoxide = {

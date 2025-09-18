@@ -10,6 +10,7 @@
     cli = {
       zsh.enable = true;
       tmux.enable = true;
+      neovim.enable = true;
     };
   };
 }
