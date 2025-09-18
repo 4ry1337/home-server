@@ -16,5 +16,5 @@
 
   programs.bat = { enable = true; };
 
-  home.packages = with pkgs; [ fzf fd jq ripgrep zip unzip ];
+  home.packages = with pkgs; [ nodejs fzf fd jq ripgrep zip unzip ];
 }

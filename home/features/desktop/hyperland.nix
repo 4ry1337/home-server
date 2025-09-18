@@ -10,13 +10,7 @@ in {
       settings = {
         xwayland = { force_zero_scaling = true; };
 
-        exec-once = [
-          "waybar"
-          "hyprpaper"
-          "hypridle"
-          ''
-            wl-paste -p -t text --watch clipman store -P --histpath="~/.local/share/clipman-primary.json"''
-        ];
+        exec-once = [ "waybar" "hyprpaper" "hypridle" ];
 
         env = [ "XCURSOR_SIZE,24" "QT_QPA_PLATFORMTHEME,qt5ct" ];
 
@@ -27,9 +21,7 @@ in {
           kb_rules = "";
           kb_options = "";
           follow_mouse = 1;
-
           touchpad = { natural_scroll = false; };
-
           sensitivity = 0;
         };
 
@@ -43,18 +35,16 @@ in {
         };
 
         decoration = {
+          "col.shadow" = "rgba(1a1a1aee)";
+          drop_shadow = true;
+          shadow_range = 4;
+          shadow_render_power = 3;
           rounding = 10;
-
           blur = {
             enabled = true;
             size = 3;
             passes = 1;
           };
-
-          drop_shadow = true;
-          shadow_range = 4;
-          shadow_render_power = 3;
-          "col.shadow" = "rgba(1a1a1aee)";
           active_opacity = 0.9;
           inactive_opacity = 0.5;
         };
@@ -113,8 +103,6 @@ in {
              "move 75 44%, title:^(Volume Control)$"
            ];
         */
-
-        windowrulev2 = [ "suppressevent maximize, class:.*" ];
 
         "$mainMod" = "SUPER";
 
