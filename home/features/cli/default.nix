@@ -19,6 +19,7 @@
   home.packages = with pkgs; [
     gh
     ghq
+    lazygit
     oh-my-posh
     tree
     fzf
