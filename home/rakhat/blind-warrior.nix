@@ -16,6 +16,7 @@
       neovim.enable = true;
       fzf.enable = true;
       fastfetch.enable = true;
+      oh-my-posh.enable = true;
     };
     apps.alacritty.enable = true;
     desktop = {
