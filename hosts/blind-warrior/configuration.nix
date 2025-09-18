@@ -95,7 +95,7 @@
     graphics.enable = true;
     nvidia = {
       modesetting.enable = true;
-      owerManagement.enable = true;
+      powerManagement.enable = true;
       nvidiaSettings = true;
     };
   };
