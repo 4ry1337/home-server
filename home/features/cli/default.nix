@@ -44,6 +44,7 @@
     aria2 # A lightweight multi-protocol & multi-source command-line download utility
     socat # replacement of openbsd-netcat
     nmap # A utility for network discovery and security auditing
+    iw
     ipcalc # it is a calculator for the IPv4/v6 addresses
   ];
 }
