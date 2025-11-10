@@ -21,6 +21,7 @@ in {
         ll = "eza -l -g --icons";
         lla = "ll -a";
         c = "clear";
+        cd = "z";
         ".." = "cd ..";
         mkdir = "mkdir -p";
       };
