@@ -38,7 +38,7 @@
         "rakhat@rakhat" = home-manager.lib.homeManagerConfiguration {
           pkgs = nixpkgs.legacyPackages."x86_64-linux";
           extraSpecialArgs = { inherit inputs outputs; };
-          modules = [ ./home/rakhat/rakhat.nix ];
+          modules = [ ./home/rakhat/blind-warrior.nix ];
         };
       };
     };
