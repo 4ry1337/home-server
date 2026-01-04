@@ -79,6 +79,20 @@
   # services.xserver.displayManager.gdm.enable = true;
   # services.xserver.desktopManager.gnome.enable = true;
 
+  services.logind.settings.Login = {
+    HandleLidSwitch = "ignore";
+    HandleLidSwitchExternalPower = "ignore";
+    HandleLidSwitchDocked = "ignore";
+
+    HandlePowerKey = "poweroff";
+    HandleSuspendKey = "ignore";
+    HandleHibernateKey = "ignore";
+
+    KillUserProcesses = false;
+
+    IdleAction = "ignore";
+  };
+
   programs.hyprland = {
     enable = true;
     xwayland.enable = true;
