@@ -10,14 +10,16 @@ in {
       settings = {
         xwayland = { force_zero_scaling = true; };
 
-        exec-once = [ "waybar" "hyprpaper" "hypridle" ];
-
-        env = [
-          "XCURSOR_SIZE,24"
-          "WLR_NO_HARDWARE_CURSORS,1"
-          "GTK_THEME,Dracula"
-          "QT_QPA_PLATFORMTHEME,qt5ct"
+        exec-once = [
+          "waybar"
+          "hyprpaper"
+          "hypridle"
+          ''
+            wl-paste -p -t text --watch clipman store -P --histpath="~/.local/share/clipman-primary.json"''
         ];
+
+        env =
+          [ "XCURSOR_SIZE,32" "WLR_NO_HARDWARE_CURSORS,1" "GTK_THEME,Dracula" ];
 
         input = {
           kb_layout = "us";
@@ -34,26 +36,26 @@ in {
           gaps_in = 5;
           gaps_out = 5;
           border_size = 1;
-          "col.active_border" = "rgba(33ccffee) rgba(00ff99ee) 45deg";
+          "col.active_border" = "rgba(9742b5ee) rgba(9742b5ee) 45deg";
           "col.inactive_border" = "rgba(595959aa)";
           layout = "dwindle";
         };
 
         decoration = {
-          rounding = 10;
-          active_opacity = 1;
-          inactive_opacity = 0.9;
-          shadow = {
-            enabled = true;
-            range = 4;
-            render_power = 3;
-            color = "rgba(1a1a1aee)";
-          };
+          "col.shadow" = "rgba(1E202966)";
+          drop_shadow = true;
+          shadow_range = 60;
+          shadow_offset = "1 2";
+          shadow_render_power = 3;
+          shadow_scale = 0.97;
+          rounding = 8;
           blur = {
             enabled = true;
             size = 3;
-            passes = 1;
+            passes = 3;
           };
+          active_opacity = 0.9;
+          inactive_opacity = 0.5;
         };
 
         animations = {
@@ -76,7 +78,39 @@ in {
 
         master = { };
 
-        gestures = { workspace_swipe_touch = true; };
+        gestures = { };
+
+        windowrule = [
+          "float, file_progress"
+          "float, confirm"
+          "float, dialog"
+          "float, download"
+          "float, notification"
+          "float, error"
+          "float, splash"
+          "float, confirmreset"
+          "float, title:Open File"
+          "float, title:branchdialog"
+          "float, Lxappearance"
+          "float, Wofi"
+          "float, dunst"
+          "animation none,Wofi"
+          "float,viewnior"
+          "float,feh"
+          "float, pavucontrol-qt"
+          "float, pavucontrol"
+          "float, file-roller"
+          "fullscreen, wlogout"
+          "float, title:wlogout"
+          "fullscreen, title:wlogout"
+          "idleinhibit focus, mpv"
+          "idleinhibit fullscreen, firefox"
+          "float, title:^(Media viewer)$"
+          "float, title:^(Volume Control)$"
+          "float, title:^(Picture-in-Picture)$"
+          "size 800 600, title:^(Volume Control)$"
+          "move 75 44%, title:^(Volume Control)$"
+        ];
 
         "$mainMod" = "SUPER";
 
@@ -84,10 +118,11 @@ in {
           "$mainMod, Escape, exec, wlogout -p layer-shell"
           "$mainMod, T, exec, alacritty"
           "$mainMod, S, exec, wofi --show drun --allow-images"
-          "$mainMod, C, killactive"
+          "$mainMod, Q, killactive"
           "$mainMod, M, exit"
           "$mainMod, E, exec, nautilus"
           "$mainMod, V, togglefloating"
+          "$mainMod, F, fullscreen"
           "$mainMod, P, pseudo"
           "$mainMod, J, togglesplit"
           "$mainMod, left, movefocus, l"
