@@ -31,12 +31,12 @@
       experimental-features = "nix-command flakes";
       trusted-users = [
         "root"
-        "your-user"
+        "rakhat"
       ]; # Set users that are allowed to use the flake command
     };
     gc = {
       automatic = true;
-      options = "--delete-older-than 30d";
+      options = "--delete-older-than 7d";
     };
     optimise.automatic = true;
     registry = (lib.mapAttrs (_: flake: { inherit flake; }))
