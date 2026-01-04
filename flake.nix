@@ -18,13 +18,15 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-25.11";
 
+    agenix.url = "github:ryantm/agenix";
+
     dotfiles = {
       url = "git+https://github.com/4ry1337/dotfiles.git";
       flake = false;
     };
   };
 
-  outputs = { self, home-manager, nixpkgs, ... }@inputs:
+  outputs = { self, home-manager, dotfiles, agenix, nixpkgs, ... }@inputs:
     let
       inherit (self) outputs;
       systems = [
@@ -42,7 +44,7 @@
       nixosConfigurations = {
         blind-warrior = nixpkgs.lib.nixosSystem {
           specialArgs = { inherit inputs outputs; };
-          modules = [ ./hosts/blind-warrior ];
+          modules = [ ./hosts/blind-warrior agenix.nixosModules.default ];
         };
       };
       homeConfigurations = {
