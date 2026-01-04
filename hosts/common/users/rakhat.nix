@@ -16,9 +16,9 @@
       "kvm"
       "qemu-libvirtd"
     ];
-    openssh.authorizedKeys.keys = [''
-      ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBrSN9GF5+d66izZY24UaUcyj3V36Mt+H+ik/PUdm5rc
-            yskak.rakhat@gmail.com''];
+    openssh.authorizedKeys.keys = [
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBrSN9GF5+d66izZY24UaUcyj3V36Mt+H+ik/PUdm5rc yskak.rakhat@gmail.com"
+    ];
     packages = [ inputs.home-manager.packages.${pkgs.system}.default ];
   };
   home-manager.users.rakhat =
