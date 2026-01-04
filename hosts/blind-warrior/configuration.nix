@@ -114,6 +114,20 @@
     };
   };
 
+  security.sudo.enable = true;
+
+  security.sudo.extraRules = [
+  { 
+    users = ["rakhat"];
+    commands = [
+      {
+        command = "/run/current-system/sw/bin/tc";
+        options = ["NOPASSWD"];
+      }
+    ];
+    }
+  ];
+
   # Open ports in the firewall.
   networking.firewall.allowedTCPPorts = [ 5201 ];
   # networking.firewall.allowedUDPPorts = [ ... ];
