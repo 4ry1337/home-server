@@ -21,7 +21,12 @@
 
   # The home.packages option allows you to install Nix packages into your
   # environment.
-  home.packages = [
+  home.packages = with pkgs; [
+    alacritty
+    tmux
+    wofi
+    sshpass
+    unixtools.net-tools
     # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.
     # pkgs.hello
@@ -70,9 +75,7 @@
   #
   #  /etc/profiles/per-user/m3tam3re/etc/profile.d/hm-session-vars.sh
   #
-  home.sessionVariables = {
-    # EDITOR = "emacs";
-  };
+  home.sessionVariables = { EDITOR = "nvim"; };
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
