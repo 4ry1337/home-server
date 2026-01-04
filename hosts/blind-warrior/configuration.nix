@@ -2,7 +2,9 @@
 # your system. Help is available in the configuration.nix(5) man page, on
 # https://search.nixos.org/options and in the NixOS manual (`nixos-help`).
 
-{ config, lib, pkgs, ... }:
+{ # config,
+# lib,
+pkgs, ... }:
 
 {
   imports = [ # Include the results of the hardware scan.
@@ -61,7 +63,7 @@
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
-  environment.systemPackages = with pkgs; [ git ];
+  environment.systemPackages = with pkgs; [ neovim git ];
 
   # programs.mtr.enable = true;
   # programs.gnupg.agent = {
@@ -116,17 +118,13 @@
 
   security.sudo.enable = true;
 
-  security.sudo.extraRules = [
-  { 
-    users = ["rakhat"];
-    commands = [
-      {
-        command = "/run/current-system/sw/bin/tc";
-        options = ["NOPASSWD"];
-      }
-    ];
-    }
-  ];
+  security.sudo.extraRules = [{
+    users = [ "rakhat" ];
+    commands = [{
+      command = "/run/current-system/sw/bin/tc";
+      options = [ "NOPASSWD" ];
+    }];
+  }];
 
   # Open ports in the firewall.
   networking.firewall.allowedTCPPorts = [ 5201 ];
@@ -158,4 +156,3 @@
   # For more information, see `man configuration.nix` or https://nixos.org/manual/nixos/stable/options#opt-system.stateVersion .
   system.stateVersion = "25.05"; # Did you read the comment?
 }
-

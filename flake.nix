@@ -1,19 +1,31 @@
 {
+  description = ''
+    For questions just DM me on X: https://twitter.com/@m3tam3re
+    There is also some NIXOS content on my YT channel: https://www.youtube.com/@m3tam3re
+
+    One of the best ways to learn NIXOS is to read other peoples configurations. I have personally learned a lot from Gabriel Fontes configs:
+    https://github.com/Misterio77/nix-starter-configs
+    https://github.com/Misterio77/nix-config
+
+    Please also check out the starter configs mentioned above.
+  '';
+
   inputs = {
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-25.05";
+    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-25.11";
 
+    agenix.url = "github:ryantm/agenix";
     dotfiles = {
       url = "git+https://github.com/4ry1337/dotfiles.git";
       flake = false;
     };
   };
 
-  outputs = { self, home-manager, nixpkgs, dotfiles, ... }@inputs:
+  outputs = { self, home-manager, dotfiles, agenix, nixpkgs, ... }@inputs:
     let
       inherit (self) outputs;
       systems = [
@@ -31,7 +43,7 @@
       nixosConfigurations = {
         blind-warrior = nixpkgs.lib.nixosSystem {
           specialArgs = { inherit inputs outputs; };
-          modules = [ ./hosts/blind-warrior ];
+          modules = [ ./hosts/blind-warrior agenix.nixosModules.default ];
         };
       };
       homeConfigurations = {
