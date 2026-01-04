@@ -16,7 +16,12 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-23.11";
+    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-25.11";
+
+    dotfiles = {
+      url = "git+https://github.com/4ry1337/dotfiles.git";
+      flake = false;
+    };
   };
 
   outputs = { self, home-manager, nixpkgs, ... }@inputs:
