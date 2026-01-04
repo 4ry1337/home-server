@@ -39,5 +39,5 @@
 {
   imports = [ ../common ./configuration.nix ./services ];
 
-  extraSerices.podman.enable = true;
+  extra_services.podman.enable = true;
 }
