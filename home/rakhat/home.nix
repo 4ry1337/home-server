@@ -26,6 +26,7 @@
     tmux
     wofi
     sshpass
+    ethtool
     unixtools.net-tools
     # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.
