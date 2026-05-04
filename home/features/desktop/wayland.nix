@@ -459,7 +459,7 @@ in {
 
       # Media / wallpaper
       playerctl       # MPRIS media controller
-      swww            # Animated wallpaper daemon
+      awww            # Animated wallpaper daemon
 
       # Custom scripts
       screenshotScript
