@@ -19,7 +19,7 @@
     openssh.authorizedKeys.keys = [
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBrSN9GF5+d66izZY24UaUcyj3V36Mt+H+ik/PUdm5rc yskak.rakhat@gmail.com"
     ];
-    packages = [ inputs.home-manager.packages.${pkgs.system}.default ];
+    packages = [ inputs.home-manager.packages.${pkgs.stdenv.hostPlatform.system}.default ];
   };
   home-manager.users.rakhat =
     import ../../../home/rakhat/${config.networking.hostName}.nix;
