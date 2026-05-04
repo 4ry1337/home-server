@@ -50,10 +50,11 @@ pkgs, ... }:
   # Enable sound.
   # services.pulseaudio.enable = true;
   # OR
-  # services.pipewire = {
-  #   enable = true;
-  #   pulse.enable = true;
-  # };
+  services.pipewire = {
+    enable = true;
+    pulse.enable = true;
+  };
+
   # console = {
   #   font = "Lat2-Terminus16";
   #   keyMap = "us";
@@ -118,16 +119,13 @@ pkgs, ... }:
 
   security.sudo.enable = true;
 
-  security.sudo.extraRules = [{
-    users = [ "rakhat" ];
-    commands = [{
-      command = "/run/current-system/sw/bin/tc";
-      options = [ "NOPASSWD" ];
-    }];
-  }];
+  # security.sudo.extraRules = [{
+  #   users = [ "rakhat" ];
+  #   commands = [];
+  # }];
 
   # Open ports in the firewall.
-  networking.firewall.allowedTCPPorts = [ 5201 ];
+  # networking.firewall.allowedTCPPorts = [ ... ];
   # networking.firewall.allowedUDPPorts = [ ... ];
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;

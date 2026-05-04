@@ -8,6 +8,11 @@
     ./zsh.nix
   ];
 
+  programs.git = {
+    enable = true;
+    lfs.enable = true;
+  };
+
   programs.zoxide = {
     enable = true;
     enableZshIntegration = true;
@@ -24,7 +29,9 @@
   programs.bat = { enable = true; };
 
   home.packages = with pkgs; [
+    gnumake
     gh
+    git
     ghq
     lazygit
     oh-my-posh

@@ -18,7 +18,11 @@
       fastfetch.enable = true;
       oh-my-posh.enable = true;
     };
-    apps.alacritty.enable = true;
+    apps = {
+      chrome.enable = true;
+      alacritty.enable = true;
+      claude-code.enable = true;
+    };
     desktop = {
       hyprland.enable = true;
       wayland.enable = true;

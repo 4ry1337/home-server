@@ -31,7 +31,7 @@ lib, outputs, pkgs, ... }: {
     package = lib.mkDefault pkgs.nix;
     settings = {
       experimental-features = [ "nix-command" "flakes" ];
-      warn-dirty = false;
+      warn-dirty = true;
     };
   };
 }
