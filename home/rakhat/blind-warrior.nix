@@ -1,5 +1,6 @@
-{
+{ inputs, ... }: {
   imports = [
+    inputs.catppuccin.homeModules.catppuccin
     ./home.nix
     ./dotfiles
     ../common
