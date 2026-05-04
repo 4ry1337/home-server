@@ -22,11 +22,11 @@ in {
           [ "XCURSOR_SIZE,32" "WLR_NO_HARDWARE_CURSORS,1" "GTK_THEME,Dracula" ];
 
         input = {
-          kb_layout = "us";
+          kb_layout = "us,ru";
           kb_variant = "";
           kb_model = "";
           kb_rules = "";
-          kb_options = "";
+          kb_options = "grp:win_space_toggle";
           follow_mouse = 1;
           touchpad = { natural_scroll = false; };
           sensitivity = 0;

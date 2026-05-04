@@ -28,24 +28,28 @@ pkgs, ... }:
   time.timeZone = "Asia/Almaty";
 
   i18n.defaultLocale = "en_US.UTF-8";
+  i18n.supportedLocales = [ "en_US.UTF-8/UTF-8" "ru_RU.UTF-8/UTF-8" ];
 
   i18n.extraLocaleSettings = {
-    LC_ADDRESS = "en_US.UTF-8";
-    LC_IDENTIFICATION = "en_US.UTF-8";
-    LC_MEASUREMENT = "en_US.UTF-8";
-    LC_MONETARY = "en_US.UTF-8";
-    LC_NAME = "en_US.UTF-8";
-    LC_NUMERIC = "en_US.UTF-8";
-    LC_PAPER = "en_US.UTF-8";
-    LC_TELEPHONE = "en_US.UTF-8";
-    LC_TIME = "en_US.UTF-8";
+    LC_ADDRESS = "ru_RU.UTF-8";
+    LC_IDENTIFICATION = "ru_RU.UTF-8";
+    LC_MEASUREMENT = "ru_RU.UTF-8";
+    LC_MONETARY = "ru_RU.UTF-8";
+    LC_NAME = "ru_RU.UTF-8";
+    LC_NUMERIC = "ru_RU.UTF-8";
+    LC_PAPER = "ru_RU.UTF-8";
+    LC_TELEPHONE = "ru_RU.UTF-8";
+    LC_TIME = "ru_RU.UTF-8";
   };
 
   # Configure keymap in X11
   services.xserver.xkb = {
-    layout = "us";
+    layout = "us,ru";
     variant = "";
+    options = "grp:win_space_toggle";
   };
+
+  console.useXkbConfig = true;
 
   # Enable sound.
   # services.pulseaudio.enable = true;
@@ -75,6 +79,10 @@ pkgs, ... }:
   services.openssh = {
     enable = true;
     settings.PermitRootLogin = "no";
+    # Disable password login — only SSH keys are accepted.
+    # This prevents brute-force attacks. Make sure your key is in
+    # users.users.rakhat.openssh.authorizedKeys.keys before switching.
+    settings.PasswordAuthentication = false;
     allowSFTP = true;
   };
 
@@ -114,6 +122,7 @@ pkgs, ... }:
       modesetting.enable = true;
       powerManagement.enable = true;
       nvidiaSettings = true;
+      open = true;
     };
   };
 

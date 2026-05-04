@@ -6,6 +6,5 @@ in {
 
   config = mkIf cfg.enable {
     home.packages = with pkgs; [ google-chrome ];
-    programs.google-chrome.enable = true;
   };
 }
