@@ -5,6 +5,6 @@ in {
   options.features.apps.obsidian.enable = mkEnableOption "Enable Obsidian";
 
   config = mkIf cfg.enable {
-    home.packages = [ pkgs.stable.obsidian ];
+    home.packages = [ pkgs.obsidian ];
   };
 }
