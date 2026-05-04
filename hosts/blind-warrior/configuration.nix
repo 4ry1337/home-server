@@ -49,7 +49,11 @@ pkgs, ... }:
     options = "grp:win_space_toggle";
   };
 
-  console.useXkbConfig = true;
+  console = {
+    useXkbConfig = true;
+    font = "ter-v32n";
+    packages = [ pkgs.terminus_font ];
+  };
 
   # Enable sound.
   # services.pulseaudio.enable = true;
