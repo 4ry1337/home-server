@@ -18,6 +18,9 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-25.11";
 
+    # Catppuccin theming across all supported applications
+    catppuccin.url = "github:catppuccin/nix";
+
     agenix.url = "github:ryantm/agenix";
     dotfiles = {
       url = "git+https://github.com/4ry1337/dotfiles.git";
@@ -50,7 +53,10 @@
         "rakhat@blind-warrior" = home-manager.lib.homeManagerConfiguration {
           pkgs = nixpkgs.legacyPackages."x86_64-linux";
           extraSpecialArgs = { inherit inputs outputs; };
-          modules = [ ./home/rakhat/blind-warrior.nix ];
+          modules = [
+            ./home/rakhat/blind-warrior.nix
+            inputs.catppuccin.homeModules.catppuccin
+          ];
         };
       };
     };

@@ -14,7 +14,7 @@ let
   };
 in {
   options.features.cli.tmux.enable =
-    mkEnableOption "enable extended tmux configuration";
+    mkEnableOption "Enable eXtended TMUX Configuration";
 
   config = mkIf cfg.enable {
     programs.tmux = {

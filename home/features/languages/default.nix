@@ -10,12 +10,7 @@
     go
     tailwindcss
     tailwindcss-language-server
-    (python314.withPackages(p: with p; [
-      numpy
-      pandas
-      seaborn
-      matplotlib
-      jupyter
-    ]))
+    uv
+    python3 
   ];
 }

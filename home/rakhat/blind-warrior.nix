@@ -9,6 +9,12 @@
     ../features/languages
   ];
 
+  # Global Catppuccin theme — applies to all supported programs
+  catppuccin = {
+    enable = true;
+    flavor = "mocha";
+  };
+
   features = {
     cli = {
       zsh.enable = true;
@@ -22,6 +28,9 @@
       chrome.enable = true;
       alacritty.enable = true;
       claude-code.enable = true;
+      telegram.enable = true;
+      spotify.enable = true;
+      obsidian.enable = true;
     };
     desktop = {
       hyprland.enable = true;

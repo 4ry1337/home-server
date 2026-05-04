@@ -8,87 +8,67 @@ in {
     wayland.windowManager.hyprland = {
       enable = true;
       settings = {
-        xwayland = { force_zero_scaling = true; };
+        monitor = ",preferred,auto,1";
+
+        env = [ 
+          "XCURSOR_SIZE,32"
+          "WLR_NO_HARDWARE_CURSORS,1"
+          # "GTK_THEME,Dracula"
+          "GTK_THEME,Adwaita:dark"
+          "QT_STYLE_OVERRIDE,Adwaita-dark"
+          "COLOR_SCHEME,prefer-dark"
+          "GTK_APPLICATION_PREFER_DARK_THEME,1"
+        ];
 
         exec-once = [
           "waybar"
-          "hyprpaper"
-          "hypridle"
-          ''
-            wl-paste -p -t text --watch clipman store -P --histpath="~/.local/share/clipman-primary.json"''
+          "swww init"  # Initialize swww daemon
+          "wallpaper-rotate"  # Set random wallpaper at startup
+          "wl-paste --type text --watch cliphist store"  # Start clipboard history daemon
+          "wl-paste --type image --watch cliphist store"  # Store image clipboard items
+          "gsettings set org.gnome.desktop.interface gtk-theme 'Adwaita-dark'"  # Set GTK dark theme
+          "gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'"  # Set color scheme preference
+          # "waybar"
+          # "hyprpaper"
+          # "hypridle"
+          # ''
+          #   wl-paste -p -t text --watch clipman store -P --histpath="~/.local/share/clipman-primary.json"''
         ];
 
-        env =
-          [ "XCURSOR_SIZE,32" "WLR_NO_HARDWARE_CURSORS,1" "GTK_THEME,Dracula" ];
-
-        input = {
-          kb_layout = "us,ru";
-          kb_variant = "";
-          kb_model = "";
-          kb_rules = "";
-          kb_options = "grp:win_space_toggle";
-          follow_mouse = 1;
-          touchpad = { natural_scroll = false; };
-          sensitivity = 0;
-        };
-
-        general = {
-          gaps_in = 5;
-          gaps_out = 5;
-          border_size = 1;
-          layout = "dwindle";
-        };
-
-        decoration = {
-          rounding = 8;
-          blur = {
-            enabled = true;
-            size = 3;
-            passes = 3;
-          };
-          active_opacity = 0.9;
-          inactive_opacity = 0.5;
-        };
-
-        animations = {
-          enabled = true;
-          bezier = "myBezier, 0.05, 0.9, 0.1, 1.05";
-          animation = [
-            "windows, 1, 7, myBezier"
-            "windowsOut, 1, 7, default, popin 80%"
-            "border, 1, 10, default"
-            "borderangle, 1, 8, default"
-            "fade, 1, 7, default"
-            "workspaces, 1, 6, default"
-          ];
-        };
-
-        dwindle = {
-          pseudotile = true;
-          preserve_split = true;
-        };
-
-        master = { };
-
-        gestures = { workspace_swipe_touch = true; };
+        # xwayland = { force_zero_scaling = true; };
 
         "$mainMod" = "SUPER";
 
         bind = [
-          "$mainMod, Escape, exec, wlogout -p layer-shell"
           "$mainMod, T, exec, alacritty"
           "$mainMod, S, exec, wofi --show drun --allow-images"
+          "$mainMod, E, exec, nautilus"
+          "$mainMod, L, exec, hyprlock"
+          "$mainMod, X, exec, wlogout"
+
+          # -- Window Management --
           "$mainMod, Q, killactive"
           "$mainMod, M, exit"
-          "$mainMod, E, exec, nautilus"
-          "$mainMod, V, togglefloating"
           "$mainMod, F, fullscreen"
-          "$mainMod, P, pseudo"
-          "$mainMod, J, togglesplit"
+          # "$mainMod, V, togglefloating"
+          "$mainMod, P, pseudo, # dwindle"
+          "$mainMod SHIFT, P, togglesplit, # dwindle"
+
+          # -- Move/Focus window --
           "$mainMod, left, movefocus, l"
           "$mainMod, right, movefocus, r"
           "$mainMod, up, movefocus, u"
           "$mainMod, down, movefocus, d"
+
+          "$mainMod SHIFT, left, movewindow, l"
+          "$mainMod SHIFT, right, movewindow, r"
+          "$mainMod SHIFT, up, movewindow, u"
+          "$mainMod SHIFT, down, movewindow, d"
+
+          # -- Clipboard Manager --
+          "$mainMod, V, exec, cliphist list | wofi --dmenu | cliphist decode | wl-copy"
+
+          # -- Workspace Navigation --
           "$mainMod, 1, workspace, 1"
           "$mainMod, 2, workspace, 2"
           "$mainMod, 3, workspace, 3"
@@ -117,6 +97,57 @@ in {
           "$mainMod, mouse:272, movewindow"
           "$mainMod, mouse:273, resizewindow"
         ];
+
+        general = {
+          gaps_in = 5;
+          gaps_out = 10;
+          border_size = 2;
+          # layout = "dwindle";
+        };
+
+        decoration = {
+          rounding = 10;
+          blur = {
+            enabled = true;
+            size = 5;
+            passes = 2;
+          };
+          # active_opacity = 0.9;
+          # inactive_opacity = 0.5;
+        };
+
+        animations = {
+          enabled = true;
+          bezier = "myBezier, 0.05, 0.9, 0.1, 1.05";
+          animation = [
+            "windows, 1, 7, myBezier"
+            "windowsOut, 1, 7, default, popin 80%"
+            "border, 1, 10, default"
+            # "borderangle, 1, 8, default"
+            "fade, 1, 7, default"
+            "workspaces, 1, 6, default"
+          ];
+        };
+
+        # input = {
+        #   kb_layout = "us,ru";
+        #   kb_variant = "";
+        #   kb_model = "";
+        #   kb_rules = "";
+        #   kb_options = "grp:win_space_toggle";
+        #   follow_mouse = 1;
+        #   touchpad = { natural_scroll = false; };
+        #   sensitivity = 0;
+        # };
+        #
+        # gestures = { workspace_swipe_touch = true; };
+        #
+        # dwindle = {
+        #   pseudotile = true;
+        #   preserve_split = true;
+        # };
+        #
+        # master = { };
       };
     };
   };

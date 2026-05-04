@@ -1,4 +1,4 @@
-{ config, lib, ... }:
+{ config, lib, pkgs, ... }:
 with lib;
 let cfg = config.features.cli.neovim;
 in {
@@ -12,5 +12,7 @@ in {
       viAlias = true;
       vimAlias = true;
     };
+
+    home.packages = [ pkgs.tree-sitter ];
   };
 }
