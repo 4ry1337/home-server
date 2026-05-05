@@ -7,6 +7,7 @@
     ../features/cli
     ../features/apps
     ../features/desktop
+    ../features/gaming
     ../features/languages
   ];
 
