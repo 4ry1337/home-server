@@ -89,8 +89,8 @@ in {
           "$mainMod SHIFT, 8, movetoworkspace, 8"
           "$mainMod SHIFT, 9, movetoworkspace, 9"
           "$mainMod SHIFT, 0, movetoworkspace, 10"
-          "$mainMod, mouse_down, workspace, e+1"
-          "$mainMod, mouse_up, workspace, e-1"
+          "$mainMod, mouse_up, workspace, e+1"
+          "$mainMod, mouse_down, workspace, e-1"
         ];
 
         bindm = [
@@ -129,25 +129,18 @@ in {
           ];
         };
 
-        # input = {
-        #   kb_layout = "us,ru";
-        #   kb_variant = "";
-        #   kb_model = "";
-        #   kb_rules = "";
-        #   kb_options = "grp:win_space_toggle";
-        #   follow_mouse = 1;
-        #   touchpad = { natural_scroll = false; };
-        #   sensitivity = 0;
-        # };
-        #
-        # gestures = { workspace_swipe_touch = true; };
-        #
-        # dwindle = {
-        #   pseudotile = true;
-        #   preserve_split = true;
-        # };
-        #
-        # master = { };
+        input = {
+          kb_layout = "us,ru";
+          kb_variant = "";
+          kb_model = "";
+          kb_rules = "";
+          kb_options = "grp:win_space_toggle";
+          follow_mouse = 1;
+          touchpad = { natural_scroll = false; };
+          sensitivity = 0;
+        };
+
+        gestures = { workspace_swipe_touch = true; };
       };
     };
   };
