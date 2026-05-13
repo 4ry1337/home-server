@@ -11,6 +11,9 @@
   programs.git = {
     enable = true;
     lfs.enable = true;
+    extraConfig = {
+      ghq.root = "~/Projects";
+    };
   };
 
   programs.zoxide = {
