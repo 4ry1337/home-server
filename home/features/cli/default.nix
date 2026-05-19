@@ -11,7 +11,7 @@
   programs.git = {
     enable = true;
     lfs.enable = true;
-    extraConfig = {
+    settings = {
       ghq.root = "~/Projects";
     };
   };
