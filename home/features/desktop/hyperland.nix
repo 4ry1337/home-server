@@ -53,7 +53,7 @@ in {
           "$mainMod, F, fullscreen"
           # "$mainMod, V, togglefloating"
           "$mainMod, P, pseudo, # dwindle"
-          "$mainMod SHIFT, P, togglesplit, # dwindle"
+          "$mainMod SHIFT, P, layoutmsg, togglesplit"
 
           # -- Move/Focus window --
           "$mainMod, left, movefocus, l"
@@ -104,6 +104,10 @@ in {
           gaps_out = 10;
           border_size = 2;
           # layout = "dwindle";
+        };
+
+        dwindle = {
+          preserve_split = true;
         };
 
         decoration = {
