@@ -114,6 +114,7 @@ pkgs, ... }:
   };
 
   programs.zsh.enable = true;
+  programs.nix-ld.enable = true;
 
   environment.sessionVariables = {
     # WLR_NO_HARDWARE_CURSOR = "1";
