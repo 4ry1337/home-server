@@ -29,6 +29,7 @@
     apps = {
       chrome.enable = true;
       alacritty.enable = true;
+      nautilus.enable = true;
       claude-code.enable = true;
       telegram.enable = true;
       spotify.enable = true;

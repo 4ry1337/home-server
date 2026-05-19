@@ -445,6 +445,7 @@ in {
     # ---------------------------------------------------------------------------
     home.packages = with pkgs; [
       # Wayland utilities
+      wofi
       grim            # Screenshot tool
       hyprlock        # Screen locker
       qt6.qtwayland   # Qt6 Wayland backend
