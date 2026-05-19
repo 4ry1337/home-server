@@ -17,10 +17,8 @@
     };
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-25.11";
-
-    # Catppuccin theming across all supported applications
+    nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     catppuccin.url = "github:catppuccin/nix";
-
     agenix.url = "github:ryantm/agenix";
     dotfiles = {
       url = "git+https://github.com/4ry1337/dotfiles.git";
@@ -28,7 +26,7 @@
     };
   };
 
-  outputs = { self, home-manager, dotfiles, agenix, nixpkgs, ... }@inputs:
+  outputs = { self, home-manager, nixos-hardware, dotfiles, agenix, nixpkgs, ... }@inputs:
     let
       inherit (self) outputs;
       systems = [
@@ -46,7 +44,11 @@
       nixosConfigurations = {
         blind-warrior = nixpkgs.lib.nixosSystem {
           specialArgs = { inherit inputs outputs; };
-          modules = [ ./hosts/blind-warrior agenix.nixosModules.default ];
+          modules = [ 
+            nixos-hardware.nixosModules.lenovo-legion-y530-15ich
+            agenix.nixosModules.default
+            ./hosts/blind-warrior
+          ];
         };
       };
       homeConfigurations = {
