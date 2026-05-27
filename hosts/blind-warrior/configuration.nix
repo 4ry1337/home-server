@@ -98,7 +98,10 @@ pkgs, ... }:
       xwayland.enable = true;
     };
     zsh.enable = true;
-    nix-ld.enable = true;
+    nix-ld = {
+      enable = true;
+      libraries = with pkgs; [ stdenv.cc.cc.lib ];
+    };
   };
 
   services.openssh = {
