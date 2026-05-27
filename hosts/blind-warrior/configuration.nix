@@ -100,7 +100,7 @@ pkgs, ... }:
     zsh.enable = true;
     nix-ld = {
       enable = true;
-      libraries = with pkgs; [ stdenv.cc.cc.lib ];
+      libraries = with pkgs; [ stdenv.cc.cc.lib icu ];
     };
   };
 
