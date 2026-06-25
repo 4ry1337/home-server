@@ -31,6 +31,10 @@
       url = "git+https://github.com/4ry1337/dotfiles.git";
       flake = false;
     };
+    tpm = {
+      url = "github:tmux-plugins/tpm";
+      flake = false;
+    };
     darkmatter.url = "gitlab:VandalByte/darkmatter-grub-theme";
   };
 

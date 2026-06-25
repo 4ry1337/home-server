@@ -18,13 +18,14 @@ in {
     LC_TELEPHONE = locale_extra;
     LC_TIME = locale_extra;
   };
-  services.xserver = {
+  # WARN: enabling xserver also starts GDM by default — only enable when a desktop is configured
+  /* services.xserver = {
     enable = true;
-    exportConfiguration = true; # Make sure /etc/X11/xkb is populated so localectl works correctly
+    exportConfiguration = true;
     xkb = {
       layout = "us,ru";
       variant = "";
       options = "caps:swapescape grp:win_space_toggle";
     };
-  };
+  }; */
 }

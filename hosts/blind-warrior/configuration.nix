@@ -14,11 +14,13 @@
     ../modules/power.nix
     ../modules/security.nix
     ../modules/shell.nix
+    ../modules/hardware.nix
     ../modules/ssh.nix
     ../modules/time_and_lang.nix
   ];
 
   boot.loader.systemd-boot.enable = true;
+  boot.kernelParams = [ "video=1920x1080@60" ];
 
   environment.systemPackages = with pkgs; [
     neovim
