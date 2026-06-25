@@ -4,8 +4,10 @@
     ./eza.nix
     ./fzf.nix
     ./git.nix
+    ./kmscon.nix
     ./neovim.nix
     ./oh-my-posh.nix
+    ./tty-browser.nix
     ./zoxide.nix
     ./zsh.nix
   ];
