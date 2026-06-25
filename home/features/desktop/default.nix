@@ -1,6 +1,6 @@
 { ... }: {
   imports = [
     ./fonts.nix
-    ./hyprland.nix
+    ./hyprland
   ];
 }

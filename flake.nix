@@ -36,6 +36,9 @@
       flake = false;
     };
     darkmatter.url = "gitlab:VandalByte/darkmatter-grub-theme";
+
+    # desktop
+    hyprswitch.url = "github:H3rmt/hyprswitch";
   };
 
   outputs =
