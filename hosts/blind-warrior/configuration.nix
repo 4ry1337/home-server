@@ -22,6 +22,8 @@
   boot.loader.systemd-boot.enable = true;
   boot.kernelParams = [ "video=1920x1080@60" ];
 
+  programs.hyprland.enable = true;
+
   environment.systemPackages = with pkgs; [
     neovim
     git

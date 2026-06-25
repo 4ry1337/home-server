@@ -24,6 +24,7 @@
     };
     desktop = {
       fonts.enable = true;
+      hyprland.enable = true;
     };
   };
 }
