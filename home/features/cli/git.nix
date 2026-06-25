@@ -12,7 +12,15 @@ in {
         ghq.root = "~/Projects";
       };
     };
-    programs.gh.enable = true;
+    programs.gh = {
+      enable = true;
+      settings = {
+        git_protocol = "https";
+        aliases = {
+          co = "pr checkout";
+        };
+      };
+    };
     programs.lazygit.enable = true;
     home.packages = [ pkgs.ghq ];
   };
