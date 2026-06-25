@@ -53,6 +53,7 @@ in {
           { _args = [ "SUPER + E" (mkLua "hl.dsp.exec_cmd(\"nautilus\")") ]; }
           { _args = [ "SUPER + S" (mkLua "hl.dsp.exec_cmd(\"hyprlauncher\")") ]; }
           { _args = [ "SUPER + L" (mkLua "hl.dsp.exec_cmd(\"hyprlock\")") ]; }
+          { _args = [ "SUPER + M" (mkLua "hl.dsp.exit()") ]; }
 
           # Window management
           { _args = [ "SUPER + Q"     (mkLua "hl.dsp.window.close()") ]; }

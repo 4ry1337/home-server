@@ -65,11 +65,11 @@
     "dotfiles": {
       "flake": false,
       "locked": {
-        "lastModified": 1782418589,
-        "narHash": "sha256-wCbRNXHNuWuI9VPp+3D1M2gi+W5ePQo/54mEKhS+pB8=",
+        "lastModified": 1782426420,
+        "narHash": "sha256-h1sbjfGTqsGrgDz4sQO8pRVbrBFMvGG9ig9c2Dv3P0I=",
         "ref": "refs/heads/master",
-        "rev": "f12978bdc865298975d2633eb3708541de9a41c6",
-        "revCount": 115,
+        "rev": "18e63c9bf5264078dd96f76748e5a7c0e4daf3e1",
+        "revCount": 116,
         "type": "git",
         "url": "https://github.com/4ry1337/dotfiles.git"
       },
@@ -141,11 +141,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1782415272,
-        "narHash": "sha256-Yt4nE/QSk1KRzOIMBK5/OOa7AH1Y0JbxNbgf5VTxQ6g=",
+        "lastModified": 1782423922,
+        "narHash": "sha256-qPNd6lUohHP5gcJhqQ7rLV87RwIx0xYR2A4Frb9Zjc4=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "19d7472aca941c7e3d11e8a91d61be47d70c4ab5",
+        "rev": "5d320ab301cfaaca7d32514f13815d19d109f5f4",
         "type": "github"
       },
       "original": {
@@ -156,11 +156,11 @@
     },
     "master": {
       "locked": {
-        "lastModified": 1782420332,
-        "narHash": "sha256-SsUBUnh3VrthPiodLTauK7jy2HQesgEqf0iWj9wjYyY=",
+        "lastModified": 1782425481,
+        "narHash": "sha256-K5JwaztTajpl6pmK6ReC9nT+nQVuvIHJFqfAdDYPv+s=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "a15ebc8c614028aad14579238ee932dc2a9f38da",
+        "rev": "d37741a3dfa55ebe1085ecbbb180d1c751d29769",
         "type": "github"
       },
       "original": {
