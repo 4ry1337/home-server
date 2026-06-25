@@ -1,7 +1,6 @@
-{ pkgs, ... }: {
+{  ... }: {
   imports = [ ];
-
-  home.packages = with pkgs; [
+  home.packages = [
     # steam              # Gaming platform
     # protonup-qt        # Proton version manager
     # gamemode           # Game performance optimization

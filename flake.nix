@@ -11,22 +11,30 @@
   '';
 
   inputs = {
+    # packages
+    master.url = "github:nixos/nixpkgs/master";
+    unstable.url = "github:nixos/nixpkgs/nixos-unstable";
+    stable.url = "github:nixos/nixpkgs/nixos-25.11";
+
+    # hardware
+    hardware.url = "github:NixOS/nixos-hardware/master";
+
+    # secerets
+    agenix.url = "github:ryantm/agenix";
+
+    # user
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-25.11";
-    nixos-hardware.url = "github:NixOS/nixos-hardware/master";
-    catppuccin.url = "github:catppuccin/nix";
-    agenix.url = "github:ryantm/agenix";
     dotfiles = {
       url = "git+https://github.com/4ry1337/dotfiles.git";
       flake = false;
     };
+    darkmatter.url = "gitlab:VandalByte/darkmatter-grub-theme";
   };
 
-  outputs = { self, home-manager, nixos-hardware, dotfiles, agenix, nixpkgs, ... }@inputs:
+  outputs = { self, home-manager, hardware, dotfiles, agenix, nixpkgs, ... }@inputs:
     let
       inherit (self) outputs;
       systems = [
@@ -45,8 +53,9 @@
         blind-warrior = nixpkgs.lib.nixosSystem {
           specialArgs = { inherit inputs outputs; };
           modules = [ 
-            nixos-hardware.nixosModules.lenovo-legion-y530-15ich
+            hardware.nixosModules.lenovo-legion-y530-15ich
             agenix.nixosModules.default
+            inputs.darkmatter.nixosModule
             ./hosts/blind-warrior
           ];
         };

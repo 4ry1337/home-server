@@ -1,12 +1,12 @@
-{ ... }: {
-  imports = [
-    ./alacritty.nix
-    ./chrome.nix
-    ./claude-code.nix
-    ./obsidian.nix
-    ./spotify.nix
-    ./telegram.nix
-    ./nautilus.nix
+{ pkgs, ... }: {
+  imports = [];
+  home.packages = with pkgs; [
+    alacritty
+    google-chrome
+    nautilus
+    obsidian
+    stable.spotify
+    stable.telegram-desktop
   ];
 }
 

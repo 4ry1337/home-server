@@ -1,60 +1,34 @@
-{ pkgs, ... }: {
+{ pkgs,  ... }: {
   imports = [
-    ./fastfetch.nix
+    ./ai.nix
+    ./eza.nix
     ./fzf.nix
+    ./git.nix
     ./neovim.nix
     ./oh-my-posh.nix
-    ./tmux.nix
+    ./zoxide.nix
     ./zsh.nix
   ];
 
-  programs.git = {
-    enable = true;
-    lfs.enable = true;
-    settings = {
-      ghq.root = "~/Projects";
-    };
-  };
-
-  programs.zoxide = {
-    enable = true;
-    enableZshIntegration = true;
-    enableFishIntegration = true;
-  };
-
-  programs.eza = {
-    enable = true;
-    enableZshIntegration = true;
-    enableBashIntegration = true;
-    extraOptions = [ "-l" "--icons" "--git" "-a" ];
-  };
-
-  programs.bat = { enable = true; };
-
   home.packages = with pkgs; [
-    gnumake
-    gh
-    git
-    ghq
-    lazygit
-    oh-my-posh
+    tmux
+    fastfetch
+    coreutils
     tree
-    fzf
     fd
     jq
     ripgrep
-    zip
-    unzip
+    gcc
 
-    # network
-    mtr # A network diagnostic tool
-    iperf3
-    dnsutils # `dig` + `nslookup`
-    ldns # replacement of `dig`, it provide the command `drill`
-    aria2 # A lightweight multi-protocol & multi-source command-line download utility
-    socat # replacement of openbsd-netcat
-    nmap # A utility for network discovery and security auditing
-    iw
-    ipcalc # it is a calculator for the IPv4/v6 addresses
+    # # network
+    # mtr # A network diagnostic tool
+    # iperf3
+    # dnsutils # `dig` + `nslookup`
+    # ldns # replacement of `dig`, it provide the command `drill`
+    # aria2 # A lightweight multi-protocol & multi-source command-line download utility
+    # socat # replacement of openbsd-netcat
+    # nmap # A utility for network discovery and security auditing
+    # iw
+    # ipcalc # it is a calculator for the IPv4/v6 addresses
   ];
 }

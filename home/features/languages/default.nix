@@ -1,16 +1,9 @@
-{ pkgs, ... }: {
-  imports = [ ];
-
-  home.packages = with pkgs; [
-    nodejs
-    gcc
-    bun
-    air
-    rustup
-    go
-    tailwindcss
-    tailwindcss-language-server
-    uv
-    python3 
-  ];
+{ ... }: {
+  programs = {
+    direnv = {
+      enable = true;
+      enableZshIntegration = true;
+      nix-direnv.enable = true;
+    };
+  };
 }

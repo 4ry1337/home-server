@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }:
+{ config, lib, ... }:
 with lib;
 let cfg = config.features.cli.oh-my-posh;
 in {
@@ -8,7 +8,7 @@ in {
     programs.oh-my-posh = {
       enable = true;
       enableZshIntegration = true;
-      configFile = "${config.xdg.configHome}/oh-my-posh/zen.toml";
+      # configFile = "${config.xdg.configHome}/oh-my-posh/zen.toml";
     };
   };
 }

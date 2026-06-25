@@ -10,7 +10,7 @@ in {
       enable = true;
       enableZshIntegration = true;
       tmux.enableShellIntegration = true;
-defaultOptions = [
+      defaultOptions = [
         "--preview='bat --color=always -n {}'"
         "--bind 'ctrl-/:toggle-preview'"
       ];

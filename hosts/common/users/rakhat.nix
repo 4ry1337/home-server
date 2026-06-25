@@ -23,4 +23,10 @@
   };
   home-manager.users.rakhat =
     import ../../../home/rakhat/${config.networking.hostName}.nix;
+
+  console = {
+    useXkbConfig = true;
+    font = "ter-v32n";
+    packages = [ pkgs.terminus_font ];
+  };
 }

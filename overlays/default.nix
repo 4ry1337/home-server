@@ -13,7 +13,7 @@
     };
 
   stable-packages = final: _prev: {
-    stable = import inputs.nixpkgs-stable {
+    stable = import inputs.stable {
       system = final.stdenv.hostPlatform.system;
       config.allowUnfree = true;
     };

@@ -11,6 +11,8 @@ in {
       loginExtra = ''
         export NIX_PATH="nixpkgs=channel:nixos-unstable"
         export NIX_LOG=info
+        export TERMINAL alacritty
+        source /run/agenix/${config.home.username}-secrets
       '';
       history.size = 10000;
       history.path = "${config.xdg.dataHome}/zsh/history";
