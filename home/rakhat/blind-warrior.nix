@@ -13,7 +13,7 @@
     cli = {
       ai.enable = true;
       kmscon.enable = true;
-      tty-browser.enable = true;
+      w3m.enable = true;
       eza.enable = true;
       fzf.enable = true;
       git.enable = true;

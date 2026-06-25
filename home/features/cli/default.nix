@@ -1,4 +1,4 @@
-{ pkgs,  ... }: {
+{ pkgs, ... }: {
   imports = [
     ./ai.nix
     ./eza.nix
@@ -7,7 +7,7 @@
     ./kmscon.nix
     ./neovim.nix
     ./oh-my-posh.nix
-    ./tty-browser.nix
+    ./w3m.nix
     ./zoxide.nix
     ./zsh.nix
   ];

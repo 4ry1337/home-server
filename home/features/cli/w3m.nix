@@ -6,14 +6,15 @@
 }:
 with lib;
 let
-  cfg = config.features.cli.kmscon;
+  cfg = config.features.cli.w3m;
 in
 {
-  options.features.cli.kmscon.enable = mkEnableOption "Enable kmscon";
+  options.features.cli.w3m.enable = mkEnableOption "Enable w3m";
 
   config = mkIf cfg.enable {
     home.packages = with pkgs; [
-      kmscon
+      ddgr
+      w3m
     ];
   };
 }

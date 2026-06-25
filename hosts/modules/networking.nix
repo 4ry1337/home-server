@@ -47,7 +47,8 @@
       # Buffer optimization (1Gbps Optimized)
       "net.ipv4.tcp_rmem" = "4096 131072 67108864";
       "net.ipv4.tcp_wmem" = "4096 65536 67108864";
-      "net.core.wmem_max" = 67108864; "net.core.rmem_max" = 67108864;
+      "net.core.wmem_max" = 67108864;
+      "net.core.rmem_max" = 67108864;
       "net.core.wmem_default" = 1048576;
       "net.core.rmem_default" = 1048576;
 

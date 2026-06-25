@@ -38,7 +38,16 @@
     darkmatter.url = "gitlab:VandalByte/darkmatter-grub-theme";
   };
 
-  outputs = { self, home-manager, hardware, dotfiles, agenix, nixpkgs, ... }@inputs:
+  outputs =
+    {
+      self,
+      home-manager,
+      hardware,
+      dotfiles,
+      agenix,
+      nixpkgs,
+      ...
+    }@inputs:
     let
       inherit (self) outputs;
       systems = [
@@ -49,14 +58,14 @@
         "x86_64-darwin"
       ];
       forAllSystems = nixpkgs.lib.genAttrs systems;
-    in {
-      packages =
-        forAllSystems (system: import ./pkgs nixpkgs.legacyPackages.${system});
+    in
+    {
+      packages = forAllSystems (system: import ./pkgs nixpkgs.legacyPackages.${system});
       overlays = import ./overlays { inherit inputs; };
       nixosConfigurations = {
         blind-warrior = nixpkgs.lib.nixosSystem {
           specialArgs = { inherit inputs outputs; };
-          modules = [ 
+          modules = [
             hardware.nixosModules.lenovo-legion-y530-15ich
             agenix.nixosModules.default
             inputs.darkmatter.nixosModule

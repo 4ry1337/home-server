@@ -1,7 +1,9 @@
 { config, lib, ... }:
 with lib;
-let cfg = config.features.cli.oh-my-posh;
-in {
+let
+  cfg = config.features.cli.oh-my-posh;
+in
+{
   options.features.cli.oh-my-posh.enable = mkEnableOption "Enable Oh-My-Posh";
 
   config = mkIf cfg.enable {
@@ -12,4 +14,3 @@ in {
     };
   };
 }
-

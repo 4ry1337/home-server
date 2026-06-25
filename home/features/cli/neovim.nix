@@ -1,9 +1,15 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 with lib;
-let cfg = config.features.cli.neovim;
-in {
-  options.features.cli.neovim.enable =
-    mkEnableOption "enable extended neovim configuration";
+let
+  cfg = config.features.cli.neovim;
+in
+{
+  options.features.cli.neovim.enable = mkEnableOption "enable extended neovim configuration";
 
   config = mkIf cfg.enable {
     programs.neovim = {

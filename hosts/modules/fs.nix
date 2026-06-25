@@ -1,4 +1,4 @@
-{...}:
+{ ... }:
 {
   services = {
     fstrim.enable = true; # SSD Optimizer

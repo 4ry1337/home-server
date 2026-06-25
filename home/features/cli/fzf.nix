@@ -1,9 +1,10 @@
 { config, lib, ... }:
 with lib;
-let cfg = config.features.cli.fzf;
-in {
-  options.features.cli.fzf.enable =
-    mkEnableOption "Enable extended fzf configuration";
+let
+  cfg = config.features.cli.fzf;
+in
+{
+  options.features.cli.fzf.enable = mkEnableOption "Enable extended fzf configuration";
 
   config = mkIf cfg.enable {
     programs.fzf = {

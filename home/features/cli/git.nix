@@ -1,7 +1,14 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 with lib;
-let cfg = config.features.cli.git;
-in {
+let
+  cfg = config.features.cli.git;
+in
+{
   options.features.cli.git.enable = mkEnableOption "Enable git";
 
   config = mkIf cfg.enable {

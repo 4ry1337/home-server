@@ -1,5 +1,5 @@
 { pkgs, ... }: {
-  imports = [];
+  imports = [ ];
   home.packages = with pkgs; [
     alacritty
     google-chrome
@@ -9,4 +9,3 @@
     stable.telegram-desktop
   ];
 }
-

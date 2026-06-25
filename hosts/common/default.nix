@@ -1,6 +1,12 @@
 # Common configuration for all hosts
 
-{ lib, inputs, outputs, pkgs, ... }: {
+{
+  lib,
+  inputs,
+  outputs,
+  ...
+}:
+{
   imports = [
     ./extra_services
     ./users
@@ -15,7 +21,8 @@
     # You can add overlays here
     overlays = [
       # Add overlays your own flake exports (from overlays and pkgs dir):
-      outputs.overlays.additions outputs.overlays.modifications
+      outputs.overlays.additions
+      outputs.overlays.modifications
       outputs.overlays.stable-packages
 
       # You can also add overlays exported from other flakes:
@@ -35,22 +42,27 @@
     };
   };
 
-  nix = let
-    flakeInputs = lib.filterAttrs (_: lib.isType "flake") inputs;
-  in {
-    settings = {
-      experimental-features = "nix-command flakes";
-      trusted-users = [
-        "root"
-        "rakhat"
-      ]; # Set users that are allowed to use the flake command
+  nix =
+    let
+      flakeInputs = lib.filterAttrs (_: lib.isType "flake") inputs;
+    in
+    {
+      settings = {
+        experimental-features = "nix-command flakes";
+        trusted-users = [
+          "root"
+          "rakhat"
+        ]; # Set users that are allowed to use the flake command
+      };
+      gc = {
+        automatic = true;
+        options = "--delete-older-than 7d";
+      };
+      optimise.automatic = true;
+      registry = lib.mapAttrs (_: flake: { inherit flake; }) flakeInputs;
+      nixPath = [
+        "/etc/nix/path"
+      ]
+      ++ lib.mapAttrsToList (flakeName: _: "${flakeName}=flake:${flakeName}") flakeInputs;
     };
-    gc = {
-      automatic = true;
-      options = "--delete-older-than 7d";
-    };
-    optimise.automatic = true;
-    registry = lib.mapAttrs (_: flake: {inherit flake;}) flakeInputs;
-    nixPath = ["/etc/nix/path"] ++ lib.mapAttrsToList (flakeName: _: "${flakeName}=flake:${flakeName}") flakeInputs;
-  };
 }

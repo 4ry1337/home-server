@@ -1,7 +1,12 @@
-{ config, pkgs, inputs, ... }: {
+{
+  config,
+  pkgs,
+  inputs,
+  ...
+}:
+{
   users.users.rakhat = {
-    initialHashedPassword =
-      "$y$j9T$IDkYUSjCVv0d7/tURzT/z0$cUeIhq8Z39jrnsMsfwmtV1SZwK3Yl1qZH/fVWOUwOg2";
+    initialHashedPassword = "$y$j9T$IDkYUSjCVv0d7/tURzT/z0$cUeIhq8Z39jrnsMsfwmtV1SZwK3Yl1qZH/fVWOUwOg2";
     isNormalUser = true;
     description = "rakhat";
     extraGroups = [
@@ -21,8 +26,7 @@
     ];
     packages = [ inputs.home-manager.packages.${pkgs.stdenv.hostPlatform.system}.default ];
   };
-  home-manager.users.rakhat =
-    import ../../../home/rakhat/${config.networking.hostName}.nix;
+  home-manager.users.rakhat = import ../../../home/rakhat/${config.networking.hostName}.nix;
 
   console = {
     useXkbConfig = true;

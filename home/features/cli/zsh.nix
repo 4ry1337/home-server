@@ -1,9 +1,15 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 with lib;
-let cfg = config.features.cli.zsh;
-in {
-  options.features.cli.zsh.enable =
-    mkEnableOption "enable extended zsh configuration";
+let
+  cfg = config.features.cli.zsh;
+in
+{
+  options.features.cli.zsh.enable = mkEnableOption "enable extended zsh configuration";
 
   config = mkIf cfg.enable {
     programs.zsh = {
@@ -29,8 +35,15 @@ in {
       };
       oh-my-zsh = {
         enable = true;
-        plugins =
-          [ "git" "sudo" "aws" "kubectl" "kubectx" "rust" "command-not-found" ];
+        plugins = [
+          "git"
+          "sudo"
+          "aws"
+          "kubectl"
+          "kubectx"
+          "rust"
+          "command-not-found"
+        ];
       };
       plugins = [
         {
