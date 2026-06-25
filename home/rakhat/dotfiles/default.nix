@@ -16,7 +16,7 @@
       source = "${inputs.dotfiles}/.config/oh-my-posh";
       recursive = true;
     };
-    ".tmux/plugins/tpm" = {
+    ".config/tmux/plugins/tpm" = {
       source = inputs.tpm;
     };
   };

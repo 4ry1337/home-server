@@ -14,6 +14,7 @@
 
   home.packages = with pkgs; [
     tmux
+    wl-clipboard
     fastfetch
     coreutils
     tree
