@@ -51,6 +51,13 @@ in
           font-mono = "Iosevka Nerd Font Mono";
           tearing-mode = true;
         };
+        wallpaper = {
+          cycling-enabled = true;
+          cycling-directory = "/home/rakhat/Pictures/wallpapers/wallpapers/Dynamic-Wallpapers/Dark/";
+          cycling-mode = "shuffle";
+          cycling-interval-mins = 15;
+          cycling-same-image = true;
+        };
         modules = {
           bluetooth = {
             label-show = false;
