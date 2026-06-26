@@ -1,14 +1,8 @@
 { ... }:
 {
   networking.firewall = {
-    allowedTCPPorts = [
-      53
-      5335
-    ];
-    allowedUDPPorts = [
-      53
-      5335
-    ];
+    allowedTCPPorts = [ 53 ];
+    allowedUDPPorts = [ 53 ];
   };
   # Disable systemd dns resolver
   services.resolved = {
@@ -27,12 +21,9 @@
   };
   systemd.services = {
     unbound.stopIfChanged = false;
-    adguardhome.serviceConfig = {
-      After = [
-        "network.target"
-        "unbound.service"
-      ];
-      Requires = [ "unbound.service" ];
+    adguardhome = {
+      after = [ "network.target" "unbound.service" ];
+      requires = [ "unbound.service" ];
     };
   };
   services = {
@@ -88,10 +79,12 @@
           bind_port = 53;
           upstream_dns = [ "127.0.0.1:5335" ];
           bootstrap_dns = [ "127.0.0.1:5335" ];
+          cache_ttl_max = 3600;
         };
         filtering = {
           protection_enabled = true;
           filtering_enabled = true;
+          filters_update_interval = 12;
 
           parental_enabled = false;
           safe_search.enabled = false;
