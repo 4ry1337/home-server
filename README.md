@@ -1,3 +1,8 @@
+## Cheatsheets
+
+- [NETWORK.md](NETWORK.md) — mtr, tcpdump, nmap, dnsutils, dog, iperf3, bandwhich, wireguard-tools, mosh, nftables
+- [DISK.md](DISK.md) — gdu, duf, dust, ouch, smartmontools, nvme-cli, rsync
+
 ## Update dotfiles
 
 ```

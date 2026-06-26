@@ -12,7 +12,9 @@
   features = {
     cli = {
       ai.enable = true;
+      disk.enable = true;
       kmscon.enable = true;
+      network.enable = true;
       w3m.enable = true;
       eza.enable = true;
       fzf.enable = true;
