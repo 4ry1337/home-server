@@ -25,6 +25,7 @@ in
   config = mkIf cfg.enable {
     wayland.windowManager.hyprland = {
       enable = true;
+      plugins = [ inputs.hyprexpo.packages.${pkgs.stdenv.hostPlatform.system}.hyprexpo ];
       settings = {
         mainMod = {
           _var = mainMod;
@@ -139,13 +140,21 @@ in
             ];
           }
 
-          # Window switcher (all windows, every instance)
+          # Workspace overview (hyprexpo)
           {
             _args = [
-              "ALT + Tab"
-              (mkLua "hl.dsp.exec_cmd(\"hyprswitch gui --mod-key alt --key tab --close mod-key-release\")")
+              "${mainMod} + TAB"
+              (mkLua "hl.dsp.exec_cmd(\"hyprctl dispatch hyprexpo:expo toggle\")")
             ];
           }
+
+          # hyprswitch (ALT+Tab) — disabled until egnrse/hyprswitch fixes Lua config compat
+          # {
+          #   _args = [
+          #     "ALT + Tab"
+          #     (mkLua "hl.dsp.exec_cmd(\"hyprswitch gui --mod-key alt --key tab\")")
+          #   ];
+          # }
 
           # Workspace: scroll with SUPER+wheel
           {
@@ -357,11 +366,26 @@ in
           hl.bind("escape", hl.dsp.submap("reset"))
         end)
 
+        hl.config({
+          plugin = {
+            hyprexpo = {
+              columns = 3,
+              gap_size = 5,
+              gap_size_outer = 5,
+              bg_col = "rgb(111111)",
+              preview_mode = "live",
+              workspace_method = "center current",
+              border_width = 3,
+              border_color_current = "rgb(66ccff)",
+            },
+          },
+        })
+
         hl.on("hyprland.start", function()
           -- Polkit authentication agent
           hl.exec_cmd("hyprpolkitagent")
-          -- Window switcher daemon (enables Alt+Tab overlay)
-          hl.exec_cmd("hyprswitch init --show-title")
+          -- hyprswitch disabled until egnrse/hyprswitch fixes Lua config compat
+          -- hl.exec_cmd("hyprswitch init --show-title")
           -- Clipboard daemon
           hl.exec_cmd("wl-paste --type text --watch cliphist store")
           hl.exec_cmd("wl-paste --type image --watch cliphist store")
@@ -369,6 +393,8 @@ in
           hl.exec_cmd("hyprsunset -t 5000")
           -- Idle daemon
           hl.exec_cmd("hypridle")
+          -- Wallpaper daemon (required by wayle wallpaper cycling)
+          hl.exec_cmd("awww-daemon")
         end)
       '';
     };
@@ -380,6 +406,7 @@ in
         hyprpolkitagent
         hyprsunset
         hypridle
+        awww
         grim
         slurp
         wl-clipboard
