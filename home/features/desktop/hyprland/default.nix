@@ -143,7 +143,7 @@ in
           {
             _args = [
               "ALT + Tab"
-              (mkLua "hl.dsp.exec_cmd(\"hyprshell gui --mod-key alt --key tab --close mod-key-release\")")
+              (mkLua "hl.dsp.exec_cmd(\"hyprswitch gui --mod-key alt --key tab --close mod-key-release\")")
             ];
           }
 
@@ -361,7 +361,7 @@ in
           -- Polkit authentication agent
           hl.exec_cmd("hyprpolkitagent")
           -- Window switcher daemon (enables Alt+Tab overlay)
-          hl.exec_cmd("hyprshell init --show-title")
+          hl.exec_cmd("hyprswitch init --show-title")
           -- Clipboard daemon
           hl.exec_cmd("wl-paste --type text --watch cliphist store")
           hl.exec_cmd("wl-paste --type image --watch cliphist store")
