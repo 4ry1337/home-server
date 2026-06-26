@@ -39,6 +39,7 @@
 
     # desktop
     hyprswitch.url = "github:egnrse/hyprswitch";
+    hyprexpo.url = "github:colonelpanic8/hyprexpo";
   };
 
   outputs =
