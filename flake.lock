@@ -21,6 +21,21 @@
         "type": "github"
       }
     },
+    "crane": {
+      "locked": {
+        "lastModified": 1780099841,
+        "narHash": "sha256-EVZd2RsbpreRUDSi9rBwPY+ZxoyMaiEBbZxxhljbaS4=",
+        "owner": "ipetkov",
+        "repo": "crane",
+        "rev": "0532eb17955225173906d671fb36306bdeb1e2dc",
+        "type": "github"
+      },
+      "original": {
+        "owner": "ipetkov",
+        "repo": "crane",
+        "type": "github"
+      }
+    },
     "darkmatter": {
       "inputs": {
         "flake-compat": "flake-compat",
@@ -65,11 +80,11 @@
     "dotfiles": {
       "flake": false,
       "locked": {
-        "lastModified": 1782426420,
-        "narHash": "sha256-h1sbjfGTqsGrgDz4sQO8pRVbrBFMvGG9ig9c2Dv3P0I=",
+        "lastModified": 1782431141,
+        "narHash": "sha256-nN0iecdNzsgiuIoFCKtcb34+p/z415WqI3ICOjNBKoo=",
         "ref": "refs/heads/master",
-        "rev": "18e63c9bf5264078dd96f76748e5a7c0e4daf3e1",
-        "revCount": 116,
+        "rev": "af69edf865784e04d3fb7da7689b74da65765922",
+        "revCount": 117,
         "type": "git",
         "url": "https://github.com/4ry1337/dotfiles.git"
       },
@@ -91,6 +106,27 @@
       "original": {
         "owner": "edolstra",
         "repo": "flake-compat",
+        "type": "github"
+      }
+    },
+    "flake-parts": {
+      "inputs": {
+        "nixpkgs-lib": [
+          "hyprswitch",
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1778716662,
+        "narHash": "sha256-m1Yf0wZ8j1OHjTc2UwHwyQRSnNeSgLJOd7q5Y45hzi4=",
+        "owner": "hercules-ci",
+        "repo": "flake-parts",
+        "rev": "f7c1a2d347e4c52d5fb8d10cb4d94b5884e546fb",
+        "type": "github"
+      },
+      "original": {
+        "owner": "hercules-ci",
+        "repo": "flake-parts",
         "type": "github"
       }
     },
@@ -154,13 +190,55 @@
         "type": "github"
       }
     },
+    "home-manager_3": {
+      "inputs": {
+        "nixpkgs": [
+          "hyprswitch",
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1780347968,
+        "narHash": "sha256-I8ibSDQx+E8cgw6k3UxX6Bm7awmGoKSTXc8Gt1Zbpp4=",
+        "owner": "nix-community",
+        "repo": "home-manager",
+        "rev": "d0af9b8bf3b4a1d449be7034bebc9f8f9fd6ee99",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-community",
+        "repo": "home-manager",
+        "type": "github"
+      }
+    },
+    "hyprswitch": {
+      "inputs": {
+        "crane": "crane",
+        "flake-parts": "flake-parts",
+        "home-manager": "home-manager_3",
+        "nixpkgs": "nixpkgs_4"
+      },
+      "locked": {
+        "lastModified": 1781132855,
+        "narHash": "sha256-GXegc0W2xiRuSCjMpVc5mmKP5YFCYn87M/POTalISCA=",
+        "owner": "H3rmt",
+        "repo": "hyprswitch",
+        "rev": "61ddaa30563c1f091ca5fbe5d7203c19f42b519c",
+        "type": "github"
+      },
+      "original": {
+        "owner": "H3rmt",
+        "repo": "hyprswitch",
+        "type": "github"
+      }
+    },
     "master": {
       "locked": {
-        "lastModified": 1782425481,
-        "narHash": "sha256-K5JwaztTajpl6pmK6ReC9nT+nQVuvIHJFqfAdDYPv+s=",
+        "lastModified": 1782431322,
+        "narHash": "sha256-MR396R6ka7O//oj2IFAqsvEtHz7NTOgNLkvmCife+WE=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "d37741a3dfa55ebe1085ecbbb180d1c751d29769",
+        "rev": "19e056881cad0187f3361e5792acb4d6e9d9add8",
         "type": "github"
       },
       "original": {
@@ -217,6 +295,22 @@
     },
     "nixpkgs_4": {
       "locked": {
+        "lastModified": 1780243769,
+        "narHash": "sha256-x5UQuRsH3MqI0U9afaXSNqzTPSeZlRLvFAav2Ux1pNw=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "331800de5053fcebacf6813adb5db9c9dca22a0c",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "ref": "nixos-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "nixpkgs_5": {
+      "locked": {
         "lastModified": 1782175435,
         "narHash": "sha256-EMzXKmnOtBQ2MnvpiNOm7E+kOMvdPrIKaeg52Tip2Uk=",
         "owner": "NixOS",
@@ -236,8 +330,9 @@
         "dotfiles": "dotfiles",
         "hardware": "hardware",
         "home-manager": "home-manager_2",
+        "hyprswitch": "hyprswitch",
         "master": "master",
-        "nixpkgs": "nixpkgs_4",
+        "nixpkgs": "nixpkgs_5",
         "stable": "stable",
         "tpm": "tpm",
         "unstable": "unstable"
