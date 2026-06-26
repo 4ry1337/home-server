@@ -9,6 +9,7 @@ with lib;
 let
   cfg = config.features.desktop.hyprland;
   mkLua = lib.generators.mkLuaInline;
+  mainMod = "SUPER";
 in
 {
   imports = [
@@ -24,7 +25,7 @@ in
       enable = true;
       settings = {
         mainMod = {
-          _var = "SUPER";
+          _var = mainMod;
         };
 
         monitor = {
@@ -75,29 +76,29 @@ in
           {
             name = "float-pavucontrol";
             match.class = "pavucontrol";
-            floating = true;
+            float = true;
           }
           {
             name = "float-nm-connection-editor";
             match.class = "nm-connection-editor";
-            floating = true;
+            float = true;
           }
           {
             name = "float-blueman";
             match.class = "blueman-manager";
-            floating = true;
+            float = true;
           }
           # Float file picker dialogs
           {
             name = "float-file-picker";
             match.title = "^(Open|Save|Save As).*";
-            floating = true;
+            float = true;
           }
           # Float + pin picture-in-picture
           {
             name = "float-pip";
             match.title = "^Picture-in-Picture$";
-            floating = true;
+            float = true;
             pin = true;
           }
         ];
@@ -106,31 +107,31 @@ in
           # Apps
           {
             _args = [
-              "SUPER + T"
+              "${mainMod} + T"
               (mkLua "hl.dsp.exec_cmd(\"alacritty\")")
             ];
           }
           {
             _args = [
-              "SUPER + E"
+              "${mainMod} + E"
               (mkLua "hl.dsp.exec_cmd(\"nautilus\")")
             ];
           }
           {
             _args = [
-              "SUPER + S"
+              "${mainMod} + S"
               (mkLua "hl.dsp.exec_cmd(\"hyprlauncher\")")
             ];
           }
           {
             _args = [
-              "SUPER + ESCAPE"
+              "${mainMod} + ESCAPE"
               (mkLua "hl.dsp.exec_cmd(\"hyprlock\")")
             ];
           }
           {
             _args = [
-              "SUPER + M"
+              "${mainMod} + M"
               (mkLua "hl.dsp.exit()")
             ];
           }
@@ -138,7 +139,7 @@ in
           # Notifications panel
           {
             _args = [
-              "SUPER + N"
+              "${mainMod} + N"
               (mkLua "hl.dsp.exec_cmd(\"swaync-client -t\")")
             ];
           }
@@ -154,13 +155,13 @@ in
           # Workspace: scroll with SUPER+wheel
           {
             _args = [
-              "SUPER + mouse_down"
+              "${mainMod} + mouse_down"
               (mkLua "hl.dsp.focus({ workspace = \"r+1\" })")
             ];
           }
           {
             _args = [
-              "SUPER + mouse_up"
+              "${mainMod} + mouse_up"
               (mkLua "hl.dsp.focus({ workspace = \"r-1\" })")
             ];
           }
@@ -168,20 +169,20 @@ in
           # Window: close
           {
             _args = [
-              "SUPER + Q"
+              "${mainMod} + Q"
               (mkLua "hl.dsp.window.close()")
             ];
           }
           # Window: fullscreen / maximize
           {
             _args = [
-              "SUPER + F"
+              "${mainMod} + F"
               (mkLua "hl.dsp.window.fullscreen({ mode = \"fullscreen\", action = \"toggle\" })")
             ];
           }
           {
             _args = [
-              "SUPER + Up"
+              "${mainMod} + Up"
               (mkLua "hl.dsp.window.fullscreen({ mode = \"maximized\", action = \"toggle\" })")
             ];
           }
@@ -189,78 +190,91 @@ in
           # Window: focus (vim-style)
           {
             _args = [
-              "SUPER + H"
-              (mkLua "hl.dsp.window.focus({ direction = \"l\" })")
+              "${mainMod} + H"
+              (mkLua "hl.dsp.focus({ direction = \"left\" })")
             ];
           }
           {
             _args = [
-              "SUPER + J"
-              (mkLua "hl.dsp.window.focus({ direction = \"d\" })")
+              "${mainMod} + J"
+              (mkLua "hl.dsp.focus({ direction = \"down\" })")
             ];
           }
           {
             _args = [
-              "SUPER + K"
-              (mkLua "hl.dsp.window.focus({ direction = \"u\" })")
+              "${mainMod} + K"
+              (mkLua "hl.dsp.focus({ direction = \"up\" })")
             ];
           }
           {
             _args = [
-              "SUPER + L"
-              (mkLua "hl.dsp.window.focus({ direction = \"r\" })")
+              "${mainMod} + L"
+              (mkLua "hl.dsp.focus({ direction = \"right\" })")
             ];
           }
 
           # Window: move (vim-style + arrow keys)
           {
             _args = [
-              "SUPER + SHIFT + H"
-              (mkLua "hl.dsp.window.move({ direction = \"l\" })")
+              "${mainMod} + SHIFT + H"
+              (mkLua "hl.dsp.window.move({ direction = \"left\" })")
             ];
           }
           {
             _args = [
-              "SUPER + SHIFT + J"
-              (mkLua "hl.dsp.window.move({ direction = \"d\" })")
+              "${mainMod} + SHIFT + J"
+              (mkLua "hl.dsp.window.move({ direction = \"down\" })")
             ];
           }
           {
             _args = [
-              "SUPER + SHIFT + K"
-              (mkLua "hl.dsp.window.move({ direction = \"u\" })")
+              "${mainMod} + SHIFT + K"
+              (mkLua "hl.dsp.window.move({ direction = \"up\" })")
             ];
           }
           {
             _args = [
-              "SUPER + SHIFT + L"
-              (mkLua "hl.dsp.window.move({ direction = \"r\" })")
+              "${mainMod} + SHIFT + L"
+              (mkLua "hl.dsp.window.move({ direction = \"right\" })")
             ];
           }
           {
             _args = [
-              "SUPER + left"
-              (mkLua "hl.dsp.window.move({ direction = \"l\" })")
+              "${mainMod} + left"
+              (mkLua "hl.dsp.window.move({ direction = \"left\" })")
             ];
           }
           {
             _args = [
-              "SUPER + right"
-              (mkLua "hl.dsp.window.move({ direction = \"r\" })")
+              "${mainMod} + right"
+              (mkLua "hl.dsp.window.move({ direction = \"right\" })")
+            ];
+          }
+          # Window: move to next/prev workspace
+          {
+            _args = [
+              "${mainMod} + SHIFT + left"
+              (mkLua "hl.dsp.window.move({ workspace = \"r-1\" })")
+            ];
+          }
+          {
+            _args = [
+              "${mainMod} + SHIFT + right"
+              (mkLua "hl.dsp.window.move({ workspace = \"r+1\" })")
             ];
           }
 
           # Mouse: drag / resize
           {
             _args = [
-              "SUPER + mouse:272"
+              "${mainMod} + mouse:272"
               (mkLua "hl.dsp.window.drag()")
               { mouse = true; }
             ];
           }
           {
             _args = [
-              "SUPER + mouse:273"
+              "${mainMod} + mouse:273"
               (mkLua "hl.dsp.window.resize()")
               { mouse = true; }
             ];
@@ -333,18 +347,18 @@ in
         end
 
         -- Screenshot region to clipboard
-        hl.bind("SUPER + SHIFT + S", hl.dsp.exec_cmd("bash -c 'grim -g \"$(slurp)\" - | wl-copy'"))
+        hl.bind("${mainMod} + SHIFT + S", hl.dsp.exec_cmd("bash -c 'grim -g \"$(slurp)\" - | wl-copy'"))
 
         -- Clipboard history
-        hl.bind("SUPER + V", hl.dsp.exec_cmd("bash -c 'cliphist list | hyprlauncher -m | cliphist decode | wl-copy'"))
+        hl.bind("${mainMod} + V", hl.dsp.exec_cmd("bash -c 'cliphist list | hyprlauncher -m | cliphist decode | wl-copy'"))
 
         -- Resize submap: SUPER+R to enter, H/J/K/L to resize, ESC to exit
-        hl.bind("SUPER + R", hl.dsp.submap("resize"))
-        hl.submap("resize", function()
-          hl.bind("H", hl.dsp.window.resize_active({ x = -20, y = 0 }), { repeating = true })
-          hl.bind("L", hl.dsp.window.resize_active({ x = 20, y = 0 }), { repeating = true })
-          hl.bind("K", hl.dsp.window.resize_active({ x = 0, y = -20 }), { repeating = true })
-          hl.bind("J", hl.dsp.window.resize_active({ x = 0, y = 20 }), { repeating = true })
+        hl.bind("${mainMod} + R", hl.dsp.submap("resize"))
+        hl.define_submap("resize", "reset", function()
+          hl.bind("H", hl.dsp.window.resize({ x = -20, y = 0, relative = true }), { repeating = true })
+          hl.bind("L", hl.dsp.window.resize({ x = 20, y = 0, relative = true }), { repeating = true })
+          hl.bind("K", hl.dsp.window.resize({ x = 0, y = -20, relative = true }), { repeating = true })
+          hl.bind("J", hl.dsp.window.resize({ x = 0, y = 20, relative = true }), { repeating = true })
           hl.bind("escape", hl.dsp.submap("reset"))
         end)
 
