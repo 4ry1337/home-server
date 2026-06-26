@@ -13,9 +13,11 @@ let
 in
 {
   imports = [
-    ./waybar.nix
+    # ./waybar.nix
+    ./wayle.nix
     ./swaync.nix
     ./hyprpaper.nix
+    ./hyprlock.nix
   ];
 
   options.features.desktop.hyprland.enable = mkEnableOption "hyprland wayland compositor";
@@ -59,7 +61,8 @@ in
           };
           decoration.rounding = 8;
           input = {
-            kb_layout = "us";
+            kb_layout = "us,ru";
+            kb_options = "grp:win_space_toggle,caps:escape";
             follow_mouse = 1;
             sensitivity = 0;
           };
@@ -133,14 +136,6 @@ in
             _args = [
               "${mainMod} + M"
               (mkLua "hl.dsp.exit()")
-            ];
-          }
-
-          # Notifications panel
-          {
-            _args = [
-              "${mainMod} + N"
-              (mkLua "hl.dsp.exec_cmd(\"swaync-client -t\")")
             ];
           }
 
@@ -370,6 +365,10 @@ in
           -- Clipboard daemon
           hl.exec_cmd("wl-paste --type text --watch cliphist store")
           hl.exec_cmd("wl-paste --type image --watch cliphist store")
+          -- Blue light filter daemon (wayle hyprsunset toggle requires this)
+          hl.exec_cmd("hyprsunset -t 5000")
+          -- Idle daemon
+          hl.exec_cmd("hypridle")
         end)
       '';
     };
@@ -379,6 +378,8 @@ in
         hyprlauncher
         hyprlock
         hyprpolkitagent
+        hyprsunset
+        hypridle
         grim
         slurp
         wl-clipboard
