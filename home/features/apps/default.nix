@@ -7,5 +7,8 @@
     obsidian
     stable.spotify
     stable.telegram-desktop
+    libreoffice
+    calcurse
+    vdirsyncer
   ];
 }
