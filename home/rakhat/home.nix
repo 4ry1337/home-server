@@ -36,6 +36,24 @@
   #
   home.sessionVariables = { };
 
+  accounts.email = {
+    maildirBasePath = "${config.home.homeDirectory}/mail";
+    accounts.personal = {
+      primary = true;
+      realName = "Rakhat";
+      address = "yskak.rakhat@gmail.com";
+      flavor = "gmail.com";
+    };
+  };
+
+  accounts.calendar = {
+    basePath = "${config.home.homeDirectory}/.local/share/calendars";
+    accounts.personal = {
+      primary = true;
+      name = "Personal";
+    };
+  };
+
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 }
