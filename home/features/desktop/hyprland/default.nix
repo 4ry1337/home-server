@@ -361,6 +361,9 @@ in
         -- Clipboard history
         hl.bind("${mainMod} + V", hl.dsp.exec_cmd("bash -c 'cliphist list | hyprlauncher -m | cliphist decode | wl-copy'"))
 
+        -- Toggle dwindle split orientation
+        hl.bind("${mainMod} + backslash", hl.dsp.layout("togglesplit"))
+
         -- Resize submap: SUPER+R to enter, H/J/K/L to resize, ESC to exit
         hl.bind("${mainMod} + R", hl.dsp.submap("resize"))
         hl.define_submap("resize", "reset", function()
