@@ -10,6 +10,17 @@ let
   cfg = config.features.desktop.hyprland;
   mkLua = lib.generators.mkLuaInline;
   mainMod = "SUPER";
+
+  wfRecorderToggleScript = pkgs.writeShellScriptBin "wf-recorder-toggle" ''
+    #!/usr/bin/env bash
+    if pgrep -x wf-recorder > /dev/null; then
+      pkill -INT wf-recorder
+    else
+      mkdir -p "$HOME/Videos/recordings"
+      region=$(slurp)
+      [ -n "$region" ] && wf-recorder -g "$region" -f "$HOME/Videos/recordings/$(date +%Y-%m-%d_%H-%M-%S).mp4"
+    fi
+  '';
 in
 {
   imports = [
@@ -25,7 +36,6 @@ in
   config = mkIf cfg.enable {
     wayland.windowManager.hyprland = {
       enable = true;
-      plugins = [ inputs.hyprexpo.packages.${pkgs.stdenv.hostPlatform.system}.hyprexpo ];
       settings = {
         mainMod = {
           _var = mainMod;
@@ -137,14 +147,6 @@ in
             _args = [
               "${mainMod} + M"
               (mkLua "hl.dsp.exit()")
-            ];
-          }
-
-          # Workspace overview (hyprexpo)
-          {
-            _args = [
-              "${mainMod} + TAB"
-              (mkLua "hl.dsp.exec_cmd(\"hyprctl dispatch hyprexpo:expo toggle\")")
             ];
           }
 
@@ -353,6 +355,9 @@ in
         -- Screenshot region to clipboard
         hl.bind("${mainMod} + SHIFT + S", hl.dsp.exec_cmd("bash -c 'grim -g \"$(slurp)\" - | wl-copy'"))
 
+        -- Screen recording toggle (region select via slurp, saves to ~/Videos/recordings)
+        hl.bind("${mainMod} + SHIFT + R", hl.dsp.exec_cmd("${wfRecorderToggleScript}/bin/wf-recorder-toggle"))
+
         -- Clipboard history
         hl.bind("${mainMod} + V", hl.dsp.exec_cmd("bash -c 'cliphist list | hyprlauncher -m | cliphist decode | wl-copy'"))
 
@@ -365,21 +370,6 @@ in
           hl.bind("J", hl.dsp.window.resize({ x = 0, y = 20, relative = true }), { repeating = true })
           hl.bind("escape", hl.dsp.submap("reset"))
         end)
-
-        hl.config({
-          plugin = {
-            hyprexpo = {
-              columns = 3,
-              gap_size = 5,
-              gap_size_outer = 5,
-              bg_col = "rgb(111111)",
-              preview_mode = "live",
-              workspace_method = "center current",
-              border_width = 3,
-              border_color_current = "rgb(66ccff)",
-            },
-          },
-        })
 
         hl.on("hyprland.start", function()
           -- Polkit authentication agent
@@ -411,6 +401,7 @@ in
         slurp
         wl-clipboard
         cliphist
+        wf-recorder
       ])
       ++ [ inputs.hyprswitch.packages.${pkgs.stdenv.hostPlatform.system}.default ];
   };
