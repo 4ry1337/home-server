@@ -17,6 +17,11 @@ in
       defaultEditor = true;
       viAlias = true;
       vimAlias = true;
+      extraPackages = with pkgs; [
+        nodejs
+        go
+        cargo
+      ];
     };
 
     home.packages = [ pkgs.tree-sitter ];
