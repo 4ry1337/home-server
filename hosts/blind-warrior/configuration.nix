@@ -31,6 +31,12 @@
     enable = true;
     withUWSM = true;
   };
+
+  xdg.portal = {
+    enable = true;
+    extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+    config.hyprland."org.freedesktop.impl.portal.Settings" = [ "gtk" ];
+  };
   programs.nix-ld.enable = true;
 
   environment.systemPackages = with pkgs; [
