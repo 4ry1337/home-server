@@ -10,6 +10,10 @@
     ../features/languages
   ];
   features = {
+    apps = {
+      media.enable = true;
+      obs.enable = true;
+    };
     cli = {
       ai.enable = true;
       disk.enable = true;

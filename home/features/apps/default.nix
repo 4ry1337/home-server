@@ -1,5 +1,5 @@
 { pkgs, ... }: {
-  imports = [ ];
+  imports = [ ./media.nix ./obs.nix ];
   home.packages = with pkgs; [
     alacritty
     google-chrome
