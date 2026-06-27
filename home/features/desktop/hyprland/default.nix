@@ -353,7 +353,7 @@ in
         end
 
         -- Screenshot region to clipboard
-        hl.bind("${mainMod} + SHIFT + S", hl.dsp.exec_cmd("bash -c 'grim -g \"$(slurp)\" - | wl-copy'"))
+        hl.bind("${mainMod} + SHIFT + S", hl.dsp.exec_cmd("bash -c 'grim -g \"$(slurp)\" - | swappy -f -'"))
 
         -- Screen recording toggle (region select via slurp, saves to ~/Videos/recordings)
         hl.bind("${mainMod} + SHIFT + R", hl.dsp.exec_cmd("${wfRecorderToggleScript}/bin/wf-recorder-toggle"))
@@ -399,6 +399,7 @@ in
         awww
         grim
         slurp
+        swappy
         wl-clipboard
         cliphist
         wf-recorder
