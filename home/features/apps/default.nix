@@ -1,5 +1,5 @@
 { pkgs, ... }: {
-  imports = [ ./media.nix ./obs.nix ];
+  imports = [ ./media.nix ./obs.nix ./calendar.nix ];
   home.packages = with pkgs; [
     alacritty
     google-chrome
@@ -8,7 +8,5 @@
     stable.spotify
     stable.telegram-desktop
     libreoffice
-    calcurse
-    vdirsyncer
   ];
 }

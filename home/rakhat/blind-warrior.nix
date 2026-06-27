@@ -13,6 +13,7 @@
     apps = {
       media.enable = true;
       obs.enable = true;
+      calendar.enable = true;
     };
     cli = {
       ai.enable = true;
