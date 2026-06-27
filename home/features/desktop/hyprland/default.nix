@@ -36,6 +36,7 @@ in
   config = mkIf cfg.enable {
     wayland.windowManager.hyprland = {
       enable = true;
+      plugins = with pkgs.hyprlandPlugins; [ hyprbars hyprspace ];
       settings = {
         mainMod = {
           _var = mainMod;
@@ -117,7 +118,28 @@ in
           }
         ];
 
+        plugin = {
+          hyprbars = {
+            bar_height = 20;
+            bar_text_size = 11;
+            bar_padding = 8;
+            bar_button_padding = 5;
+          };
+          overview = {
+            exitOnClick = true;
+            exitOnSwitch = true;
+          };
+        };
+
         bind = [
+          # Hyprspace overview
+          {
+            _args = [
+              "${mainMod} + TAB"
+              (mkLua "hl.dsp.exec_cmd(\"hyprctl dispatch overview:toggle\")")
+            ];
+          }
+
           # Apps
           {
             _args = [
@@ -341,6 +363,27 @@ in
               }
             ];
           }
+          {
+            _args = [
+              "XF86AudioPlay"
+              (mkLua "hl.dsp.exec_cmd(\"playerctl play-pause\")")
+              { locked = true; }
+            ];
+          }
+          {
+            _args = [
+              "XF86AudioNext"
+              (mkLua "hl.dsp.exec_cmd(\"playerctl next\")")
+              { locked = true; }
+            ];
+          }
+          {
+            _args = [
+              "XF86AudioPrev"
+              (mkLua "hl.dsp.exec_cmd(\"playerctl previous\")")
+              { locked = true; }
+            ];
+          }
         ];
       };
 
@@ -406,6 +449,7 @@ in
         wl-clipboard
         cliphist
         wf-recorder
+        playerctl
       ])
       ++ [ inputs.hyprswitch.packages.${pkgs.stdenv.hostPlatform.system}.default ];
   };
