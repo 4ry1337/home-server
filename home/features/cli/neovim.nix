@@ -21,6 +21,7 @@ in
         nodejs
         go
         cargo
+        python3
       ];
     };
 

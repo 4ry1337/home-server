@@ -15,6 +15,7 @@ in
 
       # archives
       ouch
+      unzip
 
       # disk health
       smartmontools
