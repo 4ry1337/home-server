@@ -11,9 +11,6 @@ in {
       vlc
     ];
 
-    programs.zathura = {
-      enable = true;
-      extraPackages = [ pkgs.zathura-pdf-mupdf ];
-    };
+    programs.zathura.enable = true;
   };
 }
