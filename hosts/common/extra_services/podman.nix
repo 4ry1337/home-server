@@ -24,7 +24,7 @@ in
             "--filter=label!=important"
           ];
         };
-        defaultNetwork.settings.dns_enabled = true;
+        defaultNetwork.settings.dns_enabled = false;
       };
     };
     environment.systemPackages = with pkgs; [ podman-compose ];
