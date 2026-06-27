@@ -61,38 +61,6 @@ IndentWidth: 4
 ColumnLimit: 100
 ```
 
-## Neovim — lsp.lua
-
-```lua
-clangd = {
-  cmd = {
-    "clangd",
-    "--background-index",
-    "--clang-tidy",
-  },
-  capabilities = {
-    offsetEncoding = "utf-8",
-  },
-  settings = {
-    fallbackFlags = { "-std=c++20" },  -- safety net if compile_commands.json is absent
-  },
-},
-```
-
-## Neovim — conform.lua
-
-```lua
-formatters_by_ft = {
-  c = { "clang-format" },
-  cpp = { "clang-format" },
-},
-formatters = {
-  clang_format = {
-    prepend_args = { "--style=LLVM" },  -- overridden by .clang-format if present
-  },
-},
-```
-
 ## Project layout
 
 ```
