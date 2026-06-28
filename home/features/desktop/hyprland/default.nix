@@ -36,7 +36,6 @@ in
   config = mkIf cfg.enable {
     wayland.windowManager.hyprland = {
       enable = true;
-      plugins = with pkgs.hyprlandPlugins; [ hyprbars hyprspace ];
       settings = {
         mainMod = {
           _var = mainMod;
@@ -118,28 +117,7 @@ in
           }
         ];
 
-        plugin = {
-          hyprbars = {
-            bar_height = 20;
-            bar_text_size = 11;
-            bar_padding = 8;
-            bar_button_padding = 5;
-          };
-          overview = {
-            exitOnClick = true;
-            exitOnSwitch = true;
-          };
-        };
-
         bind = [
-          # Hyprspace overview
-          {
-            _args = [
-              "${mainMod} + TAB"
-              (mkLua "hl.dsp.exec_cmd(\"hyprctl dispatch overview:toggle\")")
-            ];
-          }
-
           # Apps
           {
             _args = [
@@ -172,13 +150,13 @@ in
             ];
           }
 
-          # hyprswitch (ALT+Tab) — disabled until egnrse/hyprswitch fixes Lua config compat
-          # {
-          #   _args = [
-          #     "ALT + Tab"
-          #     (mkLua "hl.dsp.exec_cmd(\"hyprswitch gui --mod-key alt --key tab\")")
-          #   ];
-          # }
+          # snappy-switcher (ALT+Tab)
+          {
+            _args = [
+              "ALT + Tab"
+              (mkLua "hl.dsp.exec_cmd(\"snappy-switcher next --mod alt\")")
+            ];
+          }
 
           # Workspace: scroll with SUPER+wheel
           {
@@ -420,8 +398,8 @@ in
         hl.on("hyprland.start", function()
           -- Polkit authentication agent
           hl.exec_cmd("hyprpolkitagent")
-          -- hyprswitch disabled until egnrse/hyprswitch fixes Lua config compat
-          -- hl.exec_cmd("hyprswitch init --show-title")
+          -- Window switcher daemon
+          hl.exec_cmd("snappy-switcher --daemon")
           -- Clipboard daemon
           hl.exec_cmd("wl-paste --type text --watch cliphist store")
           hl.exec_cmd("wl-paste --type image --watch cliphist store")
@@ -451,6 +429,6 @@ in
         wf-recorder
         playerctl
       ])
-      ++ [ inputs.hyprswitch.packages.${pkgs.stdenv.hostPlatform.system}.default ];
+      ++ [ inputs.snappy-switcher.packages.${pkgs.stdenv.hostPlatform.system}.default ];
   };
 }

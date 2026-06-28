@@ -38,7 +38,7 @@
     darkmatter.url = "gitlab:VandalByte/darkmatter-grub-theme";
 
     # desktop
-    hyprswitch.url = "github:egnrse/hyprswitch";
+    snappy-switcher.url = "github:OpalAayan/snappy-switcher";
   };
 
   outputs =
