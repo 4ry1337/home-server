@@ -27,6 +27,7 @@
 
   boot.loader.systemd-boot.enable = true;
 
+  networking.hostName = "blind-warrior";
   programs.hyprland = {
     enable = true;
     withUWSM = true;

@@ -1,7 +1,6 @@
 { host, pkgs, ... }:
 {
   networking = {
-    hostName = "blind-warrior";
     networkmanager.enable = true;
 
     firewall = {

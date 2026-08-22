@@ -66,6 +66,14 @@
       packages = forAllSystems (system: import ./pkgs nixpkgs.legacyPackages.${system});
       overlays = import ./overlays { inherit inputs; };
       nixosConfigurations = {
+        ary = nixpkgs.lib.nixosSystem {
+          specialArgs = { inherit inputs outputs; };
+          modules = [
+            agenix.nixosModules.default
+            inputs.darkmatter.nixosModule
+            ./hosts/ary
+          ];
+        };
         blind-warrior = nixpkgs.lib.nixosSystem {
           specialArgs = { inherit inputs outputs; };
           modules = [
@@ -77,6 +85,11 @@
         };
       };
       homeConfigurations = {
+        "rakhat@ary" = home-manager.lib.homeManagerConfiguration {
+          pkgs = nixpkgs.legacyPackages."x86_64-linux";
+          extraSpecialArgs = { inherit inputs outputs; };
+          modules = [ ./home/rakhat/ary.nix ];
+        };
         "rakhat@blind-warrior" = home-manager.lib.homeManagerConfiguration {
           pkgs = nixpkgs.legacyPackages."x86_64-linux";
           extraSpecialArgs = { inherit inputs outputs; };
