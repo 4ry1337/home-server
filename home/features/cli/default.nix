@@ -25,5 +25,6 @@
     jq
     ripgrep
     gcc
+    gnumake
   ];
 }
