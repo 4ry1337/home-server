@@ -41,12 +41,26 @@ in
           _var = mainMod;
         };
 
-        monitor = {
-          output = "";
-          mode = "preferred";
-          position = "auto";
-          scale = "auto";
-        };
+        # monitor = {
+        #   output = "";
+        #   mode = "preferred";
+        #   position = "auto";
+        #   scale = "auto";
+        # };
+        monitor = [
+          {
+            output = "eDP-1";
+            mode = "1920x1080@120.213";
+            position = "0x0";
+            scale = 1;
+          }
+          {
+            output = "HDMI-A-1";
+            mode = "2560x1440@144";
+            position = "auto-center-up";
+            scale = 1.25;
+          }
+        ];
 
         env = [
           {
@@ -76,6 +90,9 @@ in
             kb_options = "grp:win_space_toggle,caps:escape";
             follow_mouse = 1;
             sensitivity = 0;
+            touchpad = {
+              natural_scroll = true;
+            };
           };
           dwindle.preserve_split = true;
         };
