@@ -37,6 +37,10 @@
     };
     darkmatter.url = "gitlab:VandalByte/darkmatter-grub-theme";
 
+    lanzaboote = {
+      url = "github:nix-community/lanzaboote/v1.1.0";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     # desktop
     snappy-switcher.url = "github:OpalAayan/snappy-switcher";
   };
@@ -48,6 +52,7 @@
       hardware,
       dotfiles,
       agenix,
+      lanzaboote,
       nixpkgs,
       ...
     }@inputs:
@@ -69,6 +74,7 @@
         ary = nixpkgs.lib.nixosSystem {
           specialArgs = { inherit inputs outputs; };
           modules = [
+            lanzaboote.nixosModules.lanzaboote
             hardware.nixosModules.lenovo-ideapad-15ach6
             agenix.nixosModules.default
             inputs.darkmatter.nixosModule
