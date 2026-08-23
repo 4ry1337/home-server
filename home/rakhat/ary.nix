@@ -11,6 +11,7 @@
   ];
   features = {
     apps = {
+      rdp.enable = true;
       media.enable = true;
       obs.enable = true;
       calendar.enable = true;

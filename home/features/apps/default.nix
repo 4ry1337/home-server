@@ -1,5 +1,10 @@
 { pkgs, ... }: {
-  imports = [ ./media.nix ./obs.nix ./calendar.nix ];
+  imports = [
+    ./rdp.nix
+    ./media.nix
+    ./obs.nix
+    ./calendar.nix
+  ];
   home.packages = with pkgs; [
     alacritty
     google-chrome
