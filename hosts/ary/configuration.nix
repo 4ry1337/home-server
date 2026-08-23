@@ -11,6 +11,7 @@
     ../modules/audio.nix
     ../modules/bluetooth.nix
     ../modules/dns.nix
+    ../modules/vpn.nix
     ../modules/fs.nix
     ../modules/networking.nix
     ../modules/power.nix

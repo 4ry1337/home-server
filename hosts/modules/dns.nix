@@ -22,7 +22,10 @@
   systemd.services = {
     unbound.stopIfChanged = false;
     adguardhome = {
-      after = [ "network.target" "unbound.service" ];
+      after = [
+        "network.target"
+        "unbound.service"
+      ];
       requires = [ "unbound.service" ];
     };
   };
@@ -59,6 +62,13 @@
 
               # "9.9.9.9#dns.quad9.net"
               # "149.112.112.112#dns.quad9.net"
+            ];
+          }
+          {
+            name = "erg.kz.";
+            forward-addr = [
+              "10.5.2.4"
+              "10.5.2.5"
             ];
           }
         ];
