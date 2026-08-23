@@ -69,6 +69,7 @@
         ary = nixpkgs.lib.nixosSystem {
           specialArgs = { inherit inputs outputs; };
           modules = [
+            hardware.nixosModules.lenovo-ideapad-15ach6
             agenix.nixosModules.default
             inputs.darkmatter.nixosModule
             ./hosts/ary
