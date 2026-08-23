@@ -427,6 +427,8 @@ in
           hl.exec_cmd("hypridle")
           -- Wallpaper daemon (required by wayle wallpaper cycling)
           hl.exec_cmd("awww-daemon")
+          -- Network manager tray icon
+          hl.exec_cmd("nm-applet --indicator")
         end)
       '';
     };
