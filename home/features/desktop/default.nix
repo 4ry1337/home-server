@@ -2,6 +2,7 @@
   imports = [
     ./fonts.nix
     ./hyprland
+    ./windows-dirs.nix
   ];
 
   gtk = {

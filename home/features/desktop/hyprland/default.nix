@@ -34,6 +34,7 @@ in
   options.features.desktop.hyprland.enable = mkEnableOption "hyprland wayland compositor";
 
   config = mkIf cfg.enable {
+    xdg.portal.config.hyprland."org.freedesktop.impl.portal.Settings" = [ "gtk" ];
     wayland.windowManager.hyprland = {
       enable = true;
       settings = {

@@ -2,7 +2,12 @@
 #
 # home-manager init ./
 
-{ config, lib, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 {
   # Home Manager needs a bit of information about you and the paths it should
@@ -51,6 +56,18 @@
     accounts.personal = {
       primary = true;
       name = "Personal";
+    };
+  };
+
+  xdg = {
+    enable = true;
+    userDirs = {
+      enable = true;
+      createDirectories = true;
+    };
+    portal = {
+      enable = true;
+      extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
     };
   };
 

@@ -53,7 +53,7 @@ in
         };
         wallpaper = {
           cycling-enabled = true;
-          cycling-directory = "/home/rakhat/Pictures/wallpapers/wallpapers/Dynamic-Wallpapers/Dark/";
+          cycling-directory = "/home/rakhat/Pictures/DTF";
           cycling-mode = "shuffle";
           cycling-interval-mins = 15;
           cycling-same-image = true;

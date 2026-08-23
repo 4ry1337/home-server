@@ -31,17 +31,23 @@
     withUWSM = true;
   };
 
-  xdg.portal = {
-    enable = true;
-    extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
-    config.hyprland."org.freedesktop.impl.portal.Settings" = [ "gtk" ];
-  };
   programs.nix-ld.enable = true;
 
   environment.systemPackages = with pkgs; [
     neovim
     git
   ];
+
+  fileSystems."/mnt/windows" = {
+    device = "/dev/disk/by-uuid/6C18966C18963554";
+    fsType = "ntfs3";
+    options = [
+      "rw"
+      "uid=1000"
+      "gid=1000"
+      "windows_names"
+    ];
+  };
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

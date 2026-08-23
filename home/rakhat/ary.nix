@@ -32,6 +32,10 @@
     desktop = {
       fonts.enable = true;
       hyprland.enable = true;
+      windows-dirs = {
+        enable = true;
+        username = "thego";
+      };
     };
   };
 }
