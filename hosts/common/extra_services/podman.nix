@@ -26,6 +26,7 @@ in
         };
         defaultNetwork.settings.dns_enabled = false;
       };
+      containers.registries.search = [ "docker.io" ];
     };
     environment.systemPackages = with pkgs; [ podman-compose ];
   };
