@@ -68,6 +68,10 @@ in
           file = "share/fzf-tab/fzf-tab.plugin.zsh";
         }
       ];
+      initContent = ''
+        # devenv auto-activation (must be after zoxide if you use it)
+        eval "$(devenv hook zsh)"
+      '';
     };
   };
 }
