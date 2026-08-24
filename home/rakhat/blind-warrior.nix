@@ -6,7 +6,7 @@
     ../features/apps
     ../features/cli
     ../features/desktop
-    # ../features/gaming
+    ../features/gaming
     ../features/languages
   ];
   features = {
