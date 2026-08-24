@@ -51,7 +51,7 @@
 
   fileSystems."/mnt/windows" = {
     device = "/dev/disk/by-uuid/6C18966C18963554";
-    fsType = "ntfs3";
+    fsType = "ntfs-3g";
     options = [
       "rw"
       "uid=1000"
@@ -67,5 +67,4 @@
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "26.05"; # Did you read the comment?
-
 }
