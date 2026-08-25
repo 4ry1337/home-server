@@ -16,9 +16,7 @@
       calendar.enable = true;
     };
     cli = {
-      ai.enable = false;
       disk.enable = true;
-      kmscon.enable = true;
       network.enable = true;
       w3m.enable = true;
       eza.enable = true;

@@ -38,11 +38,6 @@ in
         plugins = [
           "git"
           "sudo"
-          "aws"
-          "kubectl"
-          "kubectx"
-          "rust"
-          "command-not-found"
         ];
       };
       plugins = [
