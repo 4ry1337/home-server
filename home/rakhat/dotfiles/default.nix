@@ -8,6 +8,10 @@
       source = "${inputs.dotfiles}/.config/alacritty";
       recursive = true;
     };
+    ".config/lazygit" = {
+      source = "${inputs.dotfiles}/.config/lazygit";
+      recursive = true;
+    };
     ".config/tmux" = {
       source = "${inputs.dotfiles}/.config/tmux";
       recursive = true;
