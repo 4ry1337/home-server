@@ -43,6 +43,8 @@
             "127.0.0.1 allow"
             "192.168.0.0/24 allow"
           ];
+          log-servfail = true; # explicitly logs *why* a SERVFAIL happened
+          tcp-reuse-timeout = 10000;
           # Based on recommended settings in https://docs.pi-hole.net/guides/dns/unbound/#configure-unbound
           harden-glue = true;
           harden-dnssec-stripped = true;
@@ -111,7 +113,8 @@
               "https://easylist.to/easylist/easylist.txt" # Base filter
               "https://easylist.to/easylist/easyprivacy.txt" # Privacy protection
               "https://osint.digitalside.it/Threat-Intel/lists/latestdomains.txt" # Malware domains
-              "https://raw.githubusercontent.com/Spam404/lists/master/main-blacklist.txt" # Scam protection                                                                                      "https://raw.githubusercontent.com/hoshsadiq/adblock-nocoin-list/master/nocoin.txt"  # Cryptominers
+              "https://raw.githubusercontent.com/Spam404/lists/master/main-blacklist.txt" # Scam protection
+              "https://raw.githubusercontent.com/hoshsadiq/adblock-nocoin-list/master/nocoin.txt" # Cryptominers
 
               # My Lists
               # "https://cdn.jsdelivr.net/gh/hagezi/dns-blocklists@latest/adblock/pro.txt" # Large
