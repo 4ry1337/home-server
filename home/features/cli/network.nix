@@ -1,4 +1,9 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 with lib;
 let
   cfg = config.features.cli.network;
@@ -12,6 +17,8 @@ in
       mtr
       tcpdump
       nmap
+      ethtool
+      dhcpcd
 
       # dns
       dnsutils
