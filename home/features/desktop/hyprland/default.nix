@@ -42,24 +42,18 @@ in
           _var = mainMod;
         };
 
-        # monitor = {
-        #   output = "";
-        #   mode = "preferred";
-        #   position = "auto";
-        #   scale = "auto";
-        # };
         monitor = [
           {
             output = "eDP-1";
-            mode = "1920x1080@120.213";
-            position = "0x0";
+            mode = "preferred";
+            position = "auto";
             scale = 1;
           }
           {
             output = "HDMI-A-1";
-            mode = "2560x1440@144";
+            mode = "preferred";
             position = "auto-center-up";
-            scale = 1.25;
+            scale = 1.5;
           }
         ];
 
