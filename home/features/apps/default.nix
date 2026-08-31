@@ -13,5 +13,9 @@
     stable.spotify
     stable.telegram-desktop
     libreoffice
+    (blender.override {
+      config.cudaSupport = true;
+      config.rocmSupport = false;
+    })
   ];
 }
