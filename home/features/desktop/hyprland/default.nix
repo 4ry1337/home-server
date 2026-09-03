@@ -44,6 +44,10 @@ in
 
         monitor = [
           {
+            output = "desc: Samsung Electric Company LS27CG51x H9JW800118";
+            scale = 1.25;
+          }
+          {
             output = "eDP-1";
             mode = "preferred";
             position = "auto";
@@ -53,7 +57,7 @@ in
             output = "HDMI-A-1";
             mode = "preferred";
             position = "auto-center-up";
-            scale = 1.5;
+            scale = 1.25;
           }
         ];
 
