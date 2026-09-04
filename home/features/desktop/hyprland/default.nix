@@ -127,7 +127,7 @@ in
           # Float + pin picture-in-picture
           {
             name = "float-pip";
-            match.title = "^Picture-in-Picture$";
+            match.title = "^Picture in picture$";
             float = true;
             pin = true;
           }
