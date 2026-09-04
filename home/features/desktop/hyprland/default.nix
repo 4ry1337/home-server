@@ -396,7 +396,7 @@ in
         hl.bind("${mainMod} + SHIFT + R", hl.dsp.exec_cmd("${wfRecorderToggleScript}/bin/wf-recorder-toggle"))
 
         -- Clipboard history
-        hl.bind("${mainMod} + V", hl.dsp.exec_cmd("bash -c 'cliphist list | hyprlauncher -m | cliphist decode | wl-copy'"))
+        hl.bind("${mainMod} + V", hl.dsp.exec_cmd("bash -c 'cliphist list | hyprlauncher -m | cliphist decode | wl-copy --type text/plain'"))
 
         -- Toggle dwindle split orientation
         hl.bind("${mainMod} + backslash", hl.dsp.layout("togglesplit"))
