@@ -4,6 +4,8 @@
     ./media.nix
     ./obs.nix
     ./calendar.nix
+    ./blender.nix
+    ./office.nix
   ];
   home.packages = with pkgs; [
     alacritty
@@ -12,10 +14,5 @@
     obsidian
     stable.spotify
     stable.telegram-desktop
-    libreoffice
-    (blender.override {
-      config.cudaSupport = true;
-      config.rocmSupport = false;
-    })
   ];
 }

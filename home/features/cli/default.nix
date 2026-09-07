@@ -17,16 +17,14 @@
   programs.nix-index.enable = true;
 
   home.packages = with pkgs; [
+    btop
     tmux
     wl-clipboard
     fastfetch
     coreutils
     tree
     fd
-    btop
     jq
     ripgrep
-    gcc
-    gnumake
   ];
 }

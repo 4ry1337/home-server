@@ -15,6 +15,8 @@
       media.enable = true;
       obs.enable = true;
       calendar.enable = true;
+      blender.enable = true;
+      office.enable = true;
     };
     cli = {
       disk.enable = true;
