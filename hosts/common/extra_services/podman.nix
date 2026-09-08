@@ -26,14 +26,14 @@ in
         };
         defaultNetwork.settings.dns_enabled = false;
       };
-      # containers.registries.search = [ "docker.io" ];
-      containers.registries.settings = {
-        registry = [
-          {
-            location = "docker.io";
-          }
-        ];
-      };
+      containers.registries.search = [ "docker.io" ];
+      # containers.registries.settings = {
+      #   registry = [
+      #     {
+      #       location = "docker.io";
+      #     }
+      #   ];
+      # };
     };
     environment.systemPackages = with pkgs; [ podman-compose ];
   };
