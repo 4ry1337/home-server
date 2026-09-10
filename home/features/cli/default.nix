@@ -9,6 +9,7 @@
     ./neovim.nix
     ./network.nix
     ./oh-my-posh.nix
+    ./tmux.nix
     ./w3m.nix
     ./zoxide.nix
     ./zsh.nix
@@ -18,7 +19,6 @@
 
   home.packages = with pkgs; [
     btop
-    tmux
     wl-clipboard
     fastfetch
     coreutils

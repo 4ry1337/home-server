@@ -28,7 +28,16 @@ in
         };
       };
     };
-    programs.lazygit.enable = true;
+    programs.lazygit = {
+      enable = true;
+      settings = {
+        gui.authorColors = {
+          "Rakhat Yskak" = "orange";
+        };
+        git.commit.signOff = true;
+        quitOnTopLevelReturn = true;
+      };
+    };
     home.packages = [ pkgs.ghq ];
   };
 }

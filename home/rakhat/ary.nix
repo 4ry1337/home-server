@@ -17,21 +17,26 @@
       calendar.enable = true;
       blender.enable = true;
       office.enable = true;
+      terminal.alacritty = {
+        enable = true;
+        theme = "tokyo_night";
+      };
+      browser.google-chrome.enable = true;
     };
     cli = {
-      disk.enable = true;
       network.enable = true;
-      w3m.enable = true;
+      disk.enable = true;
+      ai.enable = true;
       eza.enable = true;
       fzf.enable = true;
       git.enable = true;
       neovim.enable = true;
       oh-my-posh.enable = true;
+      tmux.enable = true;
       zoxide.enable = true;
       zsh.enable = true;
     };
     desktop = {
-      fonts.enable = true;
       hyprland.enable = true;
       windows-dirs = {
         enable = true;

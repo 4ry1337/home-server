@@ -18,6 +18,10 @@
 
     # hardware
     hardware.url = "github:NixOS/nixos-hardware/master";
+    lanzaboote = {
+      url = "github:nix-community/lanzaboote/v1.1.0";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     # secerets
     agenix.url = "github:ryantm/agenix";
@@ -30,16 +34,6 @@
     dotfiles = {
       url = "git+https://github.com/4ry1337/dotfiles.git";
       flake = false;
-    };
-    tpm = {
-      url = "github:tmux-plugins/tpm";
-      flake = false;
-    };
-    darkmatter.url = "gitlab:VandalByte/darkmatter-grub-theme";
-
-    lanzaboote = {
-      url = "github:nix-community/lanzaboote/v1.1.0";
-      inputs.nixpkgs.follows = "nixpkgs";
     };
     # desktop
     snappy-switcher.url = "github:OpalAayan/snappy-switcher";
@@ -77,7 +71,6 @@
             lanzaboote.nixosModules.lanzaboote
             hardware.nixosModules.lenovo-ideapad-15ach6
             agenix.nixosModules.default
-            inputs.darkmatter.nixosModule
             ./hosts/ary
           ];
         };
@@ -86,7 +79,6 @@
           modules = [
             hardware.nixosModules.lenovo-legion-y530-15ich
             agenix.nixosModules.default
-            inputs.darkmatter.nixosModule
             ./hosts/blind-warrior
           ];
         };

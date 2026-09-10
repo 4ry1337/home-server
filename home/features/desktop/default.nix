@@ -1,6 +1,5 @@
-{ ... }: {
+{ pkgs, ... }: {
   imports = [
-    ./fonts.nix
     ./hyprland
     ./windows-dirs.nix
   ];
@@ -14,4 +13,11 @@
     color-scheme = "prefer-dark";
     gtk-application-prefer-dark-theme = true;
   };
+
+  # FONTS
+  home.packages = with pkgs; [
+    openmoji-color
+    nerd-fonts.iosevka
+    nerd-fonts.iosevka-term
+  ];
 }

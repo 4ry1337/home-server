@@ -1,6 +1,8 @@
 { pkgs, ... }: {
   home.packages = with pkgs; [
     devenv
+    gcc
+    vulkan-tools # Graphics debugging tools
   ];
 
   programs = {
