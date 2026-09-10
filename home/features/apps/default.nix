@@ -3,9 +3,7 @@
     ./rdp.nix
     ./media.nix
     ./obs.nix
-    ./calendar.nix
     ./blender.nix
-    ./office.nix
     ./terminal.nix
     ./browser.nix
   ];

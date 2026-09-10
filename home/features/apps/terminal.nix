@@ -25,31 +25,11 @@ in
     programs.alacritty = {
       enable = true;
       settings = {
-        general = {
-          live_config_reload = true;
-          import = [
-            "${pkgs.alacritty-theme}/share/alacritty-theme/${cfg.alacritty.theme}.toml"
-          ];
-        };
+        general.import = [
+          "${pkgs.alacritty-theme}/share/alacritty-theme/${cfg.alacritty.theme}.toml"
+        ];
 
-        env.TERM = "xterm-256color";
-
-        terminal.shell = {
-          program = "/usr/bin/env";
-          args = [ "zsh" ];
-        };
-
-        window = {
-          decorations = "Full";
-          dynamic_title = true;
-          option_as_alt = "Both";
-          opacity = 1;
-          blur = true;
-          dimensions = {
-            columns = 160;
-            lines = 80;
-          };
-        };
+        window.opacity = 0.9;
 
         font = {
           size = 20;
@@ -65,27 +45,12 @@ in
             family = "IosevkaTerm Nerd Font Mono";
             style = "Italic";
           };
-          offset = {
-            x = 0;
-            y = 0;
-          };
         };
 
-        colors = {
-          draw_bold_text_with_bright_colors = true;
-          transparent_background_colors = true;
-        };
-
-        bell = {
-          animation = "EaseOutExpo";
-          duration = 0;
-        };
-
-        selection.semantic_escape_chars = ",│`|:\"' ()[]{}<>";
+        colors.draw_bold_text_with_bright_colors = true;
 
         cursor = {
           blink_interval = 500;
-          blink_timeout = 5;
           unfocused_hollow = false;
           style = {
             blinking = "On";
@@ -93,33 +58,7 @@ in
           };
         };
 
-        mouse = {
-          hide_when_typing = true;
-          bindings = [
-            {
-              mouse = "Middle";
-              action = "PasteSelection";
-            }
-          ];
-        };
-
-        keyboard.bindings = [
-          {
-            key = "+";
-            mods = "Control";
-            action = "IncreaseFontSize";
-          }
-          {
-            key = "-";
-            mods = "Control";
-            action = "DecreaseFontSize";
-          }
-          {
-            key = "=";
-            mods = "Control";
-            action = "ResetFontSize";
-          }
-        ];
+        mouse.hide_when_typing = true;
       };
     };
   };

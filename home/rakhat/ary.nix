@@ -15,9 +15,7 @@
       rdp.enable = true;
       media.enable = true;
       obs.enable = true;
-      calendar.enable = true;
       blender.enable = true;
-      office.enable = true;
       terminal.alacritty = {
         enable = true;
         theme = "tokyo_night";

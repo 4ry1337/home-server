@@ -9,7 +9,6 @@ in {
     programs.obs-studio = {
       enable = true;
       plugins = with pkgs.obs-studio-plugins; [
-        wlrobs
         obs-pipewire-audio-capture
         obs-vkcapture
         obs-backgroundremoval
@@ -26,6 +25,7 @@ in {
         ExecStart = "${pkgs.obs-spotify-widget}/bin/obs_spotify_widget";
         Restart = "on-failure";
       };
+      Install.WantedBy = [ "graphical-session.target" ];
     };
   };
 }

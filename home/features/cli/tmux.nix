@@ -39,8 +39,6 @@ in
       ];
 
       extraConfig = ''
-        set-option -sa terminal-overrides ",xterm*:Tc"
-
         unbind %
         unbind c
         unbind '"'
