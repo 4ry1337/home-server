@@ -89,7 +89,10 @@
         dns = {
           bind_host = "0.0.0.0";
           bind_port = 53;
-          upstream_dns = [ "127.0.0.1:5335" ];
+          upstream_dns = [
+            "[/ts.net/]100.100.100.100" # Tailscale MagicDNS for *.ts.net
+            "127.0.0.1:5335"
+          ];
           bootstrap_dns = [ "127.0.0.1:5335" ];
           cache_ttl_max = 3600;
         };
