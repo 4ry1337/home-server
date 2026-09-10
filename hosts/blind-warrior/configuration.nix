@@ -22,6 +22,7 @@
     ../modules/shell.nix
     ../modules/hardware.nix
     ../modules/ssh.nix
+    ../modules/tailscale.nix
     ../modules/time_and_lang.nix
   ];
 
