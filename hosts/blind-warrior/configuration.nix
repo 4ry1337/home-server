@@ -20,6 +20,7 @@
     ../modules/power.nix
     ../modules/security.nix
     ../modules/shell.nix
+    ../modules/console.nix
     ../modules/hardware.nix
     ../modules/ssh.nix
     ../modules/time_and_lang.nix

@@ -20,6 +20,8 @@ in
   };
 
   config = mkIf cfg.alacritty.enable {
+    home.sessionVariables.TERMINAL = "alacritty";
+
     programs.alacritty = {
       enable = true;
       settings = {

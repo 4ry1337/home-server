@@ -6,10 +6,11 @@
     ../features/apps
     ../features/cli
     ../features/desktop
+    ../features/dev
     ../features/gaming
-    ../features/languages
   ];
   features = {
+    dev.enable = true;
     apps = {
       rdp.enable = true;
       media.enable = true;
@@ -26,7 +27,6 @@
     cli = {
       network.enable = true;
       disk.enable = true;
-      ai.enable = true;
       eza.enable = true;
       fzf.enable = true;
       git.enable = true;

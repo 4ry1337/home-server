@@ -17,28 +17,14 @@ in
       loginExtra = ''
         export NIX_PATH="nixpkgs=channel:nixos-unstable"
         export NIX_LOG=info
-        export TERMINAL alacritty
         [ -f /run/agenix/${config.home.username}-secrets ] && source /run/agenix/${config.home.username}-secrets
       '';
       history.size = 10000;
       history.path = "${config.xdg.dataHome}/zsh/history";
       shellAliases = {
-        vim = "nvim";
-        ls = "ls -p -G";
-        la = "ls -A";
-        ll = "eza -l -g --icons";
-        lla = "ll -a";
         c = "clear";
-        cd = "z";
         ".." = "cd ..";
         mkdir = "mkdir -p";
-      };
-      oh-my-zsh = {
-        enable = true;
-        plugins = [
-          "git"
-          "sudo"
-        ];
       };
       plugins = [
         {
@@ -57,16 +43,7 @@ in
           src = pkgs.zsh-syntax-highlighting;
           file = "share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh";
         }
-        {
-          name = "fzf-tab";
-          src = pkgs.zsh-fzf-tab;
-          file = "share/fzf-tab/fzf-tab.plugin.zsh";
-        }
       ];
-      initContent = ''
-        # devenv auto-activation (must be after zoxide if you use it)
-        eval "$(devenv hook zsh)"
-      '';
     };
   };
 }

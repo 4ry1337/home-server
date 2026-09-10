@@ -6,10 +6,11 @@
     ../features/apps
     ../features/cli
     ../features/desktop
+    ../features/dev
     ../features/gaming
-    ../features/languages
   ];
   features = {
+    dev.enable = true;
     apps = {
       media.enable = true;
       obs.enable = true;
@@ -23,7 +24,6 @@
     cli = {
       disk.enable = true;
       network.enable = true;
-      ai.enable = true;
       eza.enable = true;
       fzf.enable = true;
       git.enable = true;

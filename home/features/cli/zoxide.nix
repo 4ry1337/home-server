@@ -9,6 +9,9 @@ in
     programs.zoxide = {
       enable = true;
       enableZshIntegration = true;
+      # replace `cd` with the zoxide function (also gives `cdi` interactive);
+      # `z`/`zi` are not defined in this mode
+      options = [ "--cmd cd" ];
     };
   };
 }

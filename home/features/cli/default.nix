@@ -1,16 +1,13 @@
 { pkgs, ... }: {
   imports = [
-    ./ai.nix
     ./disk.nix
     ./eza.nix
     ./fzf.nix
     ./git.nix
-    ./kmscon.nix
     ./neovim.nix
     ./network.nix
     ./oh-my-posh.nix
     ./tmux.nix
-    ./w3m.nix
     ./zoxide.nix
     ./zsh.nix
   ];
@@ -22,7 +19,6 @@
     wl-clipboard
     fastfetch
     coreutils
-    tree
     fd
     jq
     ripgrep

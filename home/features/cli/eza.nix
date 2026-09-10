@@ -18,5 +18,8 @@ in
         "-a"
       ];
     };
+
+    # only defined while eza is enabled — no dangling alias if it is turned off
+    programs.zsh.shellAliases.tree = "eza --tree";
   };
 }
