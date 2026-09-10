@@ -6,6 +6,8 @@
     enable = true;
     authKeyFile = config.age.secrets.tailscale-authkey.path;
     openFirewall = true;
+    # run Tailscale's built-in SSH server (auth via the tailnet ACL policy)
+    extraSetFlags = [ "--ssh" ];
   };
 
   # tailnet is trusted — also lets the host's services (AdGuard, DNS, …) be
