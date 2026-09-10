@@ -14,6 +14,7 @@
       media.enable = true;
       obs.enable = true;
       calendar.enable = true;
+      terminal.alacritty.enable = true;
     };
     cli = {
       disk.enable = true;

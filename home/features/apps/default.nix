@@ -6,9 +6,9 @@
     ./calendar.nix
     ./blender.nix
     ./office.nix
+    ./terminal.nix
   ];
   home.packages = with pkgs; [
-    alacritty
     google-chrome
     nautilus
     obsidian

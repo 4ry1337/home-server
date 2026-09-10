@@ -17,6 +17,7 @@
       calendar.enable = true;
       blender.enable = true;
       office.enable = true;
+      terminal.alacritty.enable = true;
     };
     cli = {
       disk.enable = true;
