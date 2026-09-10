@@ -22,7 +22,7 @@
       "qemu-libvirtd"
     ];
     openssh.authorizedKeys.keys = [
-      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBrSN9GF5+d66izZY24UaUcyj3V36Mt+H+ik/PUdm5rc yskak.rakhat@gmail.com"
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAw073fJwGbhBTWk6Yy2h/MTGnUJrbjnMQ8hJ0PLZGJr rakhat"
     ];
     packages = [ inputs.home-manager.packages.${pkgs.stdenv.hostPlatform.system}.default ];
   };
