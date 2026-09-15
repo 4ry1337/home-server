@@ -14,7 +14,7 @@
     # packages
     master.url = "github:nixos/nixpkgs/master";
     unstable.url = "github:nixos/nixpkgs/nixos-unstable";
-    stable.url = "github:nixos/nixpkgs/nixos-25.11";
+    stable.url = "github:nixos/nixpkgs/nixos-26.05";
 
     # hardware
     hardware.url = "github:NixOS/nixos-hardware/master";
