@@ -133,7 +133,33 @@ in
           }
         ];
 
+        gesture = [
+          # Workspace: switch with 3-finger horizontal swipe
+          {
+            fingers = 3;
+            direction = "horizontal";
+            action = "workspace";
+          }
+          # Window switcher: 3-finger swipe up (mimics Mission Control / Task View)
+          {
+            fingers = 3;
+            direction = "up";
+            action = mkLua "function() hl.dsp.exec_cmd(\"snappy-switcher next --mod alt\") end";
+          }
+          # {
+          #   fingers = 3;
+          #   direction = "down";
+          #   action = "";
+          # }
+        ];
+
         bind = [
+          {
+            _args = [
+              "${mainMod} + Tab + ESCAPE"
+              (mkLua "hl.dsp.exit()")
+            ];
+          }
           # Apps
           {
             _args = [
@@ -159,13 +185,6 @@ in
               (mkLua "hl.dsp.exec_cmd(\"hyprlock\")")
             ];
           }
-          {
-            _args = [
-              "${mainMod} + M"
-              (mkLua "hl.dsp.exit()")
-            ];
-          }
-
           # snappy-switcher (ALT+Tab)
           {
             _args = [
@@ -173,135 +192,27 @@ in
               (mkLua "hl.dsp.exec_cmd(\"snappy-switcher next --mod alt\")")
             ];
           }
-
-          # Workspace: scroll with SUPER+wheel
+          # Screenshot region to clipboard
           {
             _args = [
-              "${mainMod} + mouse_down"
-              (mkLua "hl.dsp.focus({ workspace = \"r+1\" })")
+              "${mainMod} + SHIFT + S"
+              (mkLua "hl.dsp.exec_cmd(\"bash -c 'grim -g \\\"$(slurp)\\\" - | swappy -f -'\")")
             ];
           }
+          # Screen recording toggle (region select via slurp, saves to ~/Videos/recordings)
           {
             _args = [
-              "${mainMod} + mouse_up"
-              (mkLua "hl.dsp.focus({ workspace = \"r-1\" })")
+              "${mainMod} + SHIFT + R"
+              (mkLua "hl.dsp.exec_cmd(\"${wfRecorderToggleScript}/bin/wf-recorder-toggle\")")
             ];
           }
-
-          # Window: close
+          # Clipboard history
           {
             _args = [
-              "${mainMod} + Q"
-              (mkLua "hl.dsp.window.close()")
+              "${mainMod} + V"
+              (mkLua "hl.dsp.exec_cmd(\"bash -c 'cliphist list | hyprlauncher -m | cliphist decode | wl-copy --type text/plain'\")")
             ];
           }
-          # Window: fullscreen / maximize
-          {
-            _args = [
-              "${mainMod} + F"
-              (mkLua "hl.dsp.window.fullscreen({ mode = \"fullscreen\", action = \"toggle\" })")
-            ];
-          }
-          {
-            _args = [
-              "${mainMod} + Up"
-              (mkLua "hl.dsp.window.fullscreen({ mode = \"maximized\", action = \"toggle\" })")
-            ];
-          }
-
-          # Window: focus (vim-style)
-          {
-            _args = [
-              "${mainMod} + H"
-              (mkLua "hl.dsp.focus({ direction = \"left\" })")
-            ];
-          }
-          {
-            _args = [
-              "${mainMod} + J"
-              (mkLua "hl.dsp.focus({ direction = \"down\" })")
-            ];
-          }
-          {
-            _args = [
-              "${mainMod} + K"
-              (mkLua "hl.dsp.focus({ direction = \"up\" })")
-            ];
-          }
-          {
-            _args = [
-              "${mainMod} + L"
-              (mkLua "hl.dsp.focus({ direction = \"right\" })")
-            ];
-          }
-
-          # Window: move (vim-style + arrow keys)
-          {
-            _args = [
-              "${mainMod} + SHIFT + H"
-              (mkLua "hl.dsp.window.move({ direction = \"left\" })")
-            ];
-          }
-          {
-            _args = [
-              "${mainMod} + SHIFT + J"
-              (mkLua "hl.dsp.window.move({ direction = \"down\" })")
-            ];
-          }
-          {
-            _args = [
-              "${mainMod} + SHIFT + K"
-              (mkLua "hl.dsp.window.move({ direction = \"up\" })")
-            ];
-          }
-          {
-            _args = [
-              "${mainMod} + SHIFT + L"
-              (mkLua "hl.dsp.window.move({ direction = \"right\" })")
-            ];
-          }
-          {
-            _args = [
-              "${mainMod} + left"
-              (mkLua "hl.dsp.window.move({ direction = \"left\" })")
-            ];
-          }
-          {
-            _args = [
-              "${mainMod} + right"
-              (mkLua "hl.dsp.window.move({ direction = \"right\" })")
-            ];
-          }
-          # Window: move to next/prev workspace
-          {
-            _args = [
-              "${mainMod} + SHIFT + left"
-              (mkLua "hl.dsp.window.move({ workspace = \"r-1\" })")
-            ];
-          }
-          {
-            _args = [
-              "${mainMod} + SHIFT + right"
-              (mkLua "hl.dsp.window.move({ workspace = \"r+1\" })")
-            ];
-          }
-
-          # Mouse: drag / resize
-          {
-            _args = [
-              "${mainMod} + mouse:272"
-              (mkLua "hl.dsp.window.drag()")
-              { mouse = true; }
-            ];
-          }
-          {
-            _args = [
-              "${mainMod} + mouse:273"
-              (mkLua "hl.dsp.window.resize()")
-              { mouse = true; }
-            ];
-          }
-
           # Media keys
           {
             _args = [
@@ -378,31 +289,152 @@ in
               { locked = true; }
             ];
           }
-        ];
+          # Window: close
+          {
+            _args = [
+              "${mainMod} + Q"
+              (mkLua "hl.dsp.window.close()")
+            ];
+          }
+          # Toggle dwindle split orientation
+          {
+            _args = [
+              "${mainMod} + backslash"
+              (mkLua "hl.dsp.layout(\"togglesplit\")")
+            ];
+          }
+          # Window: fullscreen
+          {
+            _args = [
+              "${mainMod} + F"
+              (mkLua "hl.dsp.window.fullscreen({ mode = \"fullscreen\", action = \"toggle\" })")
+            ];
+          }
+          # Window: maximize
+          {
+            _args = [
+              "${mainMod} + M"
+              (mkLua "hl.dsp.window.fullscreen({ mode = \"maximized\", action = \"toggle\" })")
+            ];
+          }
+          # Window: drag
+          {
+            _args = [
+              "${mainMod} + mouse:272"
+              (mkLua "hl.dsp.window.drag()")
+              { mouse = true; }
+            ];
+          }
+          # Window: resize
+          {
+            _args = [
+              "${mainMod} + mouse:273"
+              (mkLua "hl.dsp.window.resize()")
+              { mouse = true; }
+            ];
+          }
+          # Window: resize submap SUPER+R to enter (submap body defined in extraConfig)
+          {
+            _args = [
+              "${mainMod} + R"
+              (mkLua "hl.dsp.submap(\"resize\")")
+            ];
+          }
+          # Window: focus (vim-style)
+          {
+            _args = [
+              "${mainMod} + H"
+              (mkLua "hl.dsp.focus({ direction = \"left\" })")
+            ];
+          }
+          {
+            _args = [
+              "${mainMod} + J"
+              (mkLua "hl.dsp.focus({ direction = \"down\" })")
+            ];
+          }
+          {
+            _args = [
+              "${mainMod} + K"
+              (mkLua "hl.dsp.focus({ direction = \"up\" })")
+            ];
+          }
+          {
+            _args = [
+              "${mainMod} + L"
+              (mkLua "hl.dsp.focus({ direction = \"right\" })")
+            ];
+          }
+          # Window: move (vim-style)
+          {
+            _args = [
+              "${mainMod} + SHIFT + H"
+              (mkLua "hl.dsp.window.move({ direction = \"left\" })")
+            ];
+          }
+          {
+            _args = [
+              "${mainMod} + SHIFT + J"
+              (mkLua "hl.dsp.window.move({ direction = \"down\" })")
+            ];
+          }
+          {
+            _args = [
+              "${mainMod} + SHIFT + K"
+              (mkLua "hl.dsp.window.move({ direction = \"up\" })")
+            ];
+          }
+          {
+            _args = [
+              "${mainMod} + SHIFT + L"
+              (mkLua "hl.dsp.window.move({ direction = \"right\" })")
+            ];
+          }
+          # Window: move to next/prev workspace
+          {
+            _args = [
+              "${mainMod} + CTRL + SHIFT + H"
+              (mkLua "hl.dsp.window.move({ workspace = \"r-1\" })")
+            ];
+          }
+          {
+            _args = [
+              "${mainMod} + CTRL + SHIFT + L"
+              (mkLua "hl.dsp.window.move({ workspace = \"r+1\" })")
+            ];
+          }
+          # Workspace: focus (vim-style)
+          {
+            _args = [
+              "${mainMod} + CTRL + H"
+              (mkLua "hl.dsp.focus({ workspace = \"r-1\" })")
+            ];
+          }
+          {
+            _args = [
+              "${mainMod} + CTRL + L"
+              (mkLua "hl.dsp.focus({ workspace = \"r+1\" })")
+            ];
+          }
+        ]
+        # Workspace: switching 1-10 (focus)
+        ++ (map (i: {
+          _args = [
+            "${mainMod} + ${toString (mod i 10)}"
+            (mkLua "hl.dsp.focus({ workspace = ${toString i} })")
+          ];
+        }) (range 1 10))
+        # Workspace: switching 1-10 (move window)
+        ++ (map (i: {
+          _args = [
+            "${mainMod} + SHIFT + ${toString (mod i 10)}"
+            (mkLua "hl.dsp.window.move({ workspace = ${toString i} })")
+          ];
+        }) (range 1 10));
       };
 
       extraConfig = ''
-        -- Workspace switching 1-10
-        for i = 1, 10 do
-          local key = i % 10
-          hl.bind(mainMod .. " + " .. key, hl.dsp.focus({ workspace = i }))
-          hl.bind(mainMod .. " + SHIFT + " .. key, hl.dsp.window.move({ workspace = i }))
-        end
-
-        -- Screenshot region to clipboard
-        hl.bind("${mainMod} + SHIFT + S", hl.dsp.exec_cmd("bash -c 'grim -g \"$(slurp)\" - | swappy -f -'"))
-
-        -- Screen recording toggle (region select via slurp, saves to ~/Videos/recordings)
-        hl.bind("${mainMod} + SHIFT + R", hl.dsp.exec_cmd("${wfRecorderToggleScript}/bin/wf-recorder-toggle"))
-
-        -- Clipboard history
-        hl.bind("${mainMod} + V", hl.dsp.exec_cmd("bash -c 'cliphist list | hyprlauncher -m | cliphist decode | wl-copy --type text/plain'"))
-
-        -- Toggle dwindle split orientation
-        hl.bind("${mainMod} + backslash", hl.dsp.layout("togglesplit"))
-
-        -- Resize submap: SUPER+R to enter, H/J/K/L to resize, ESC to exit
-        hl.bind("${mainMod} + R", hl.dsp.submap("resize"))
+        -- Resize submap: H/J/K/L to resize, ESC to exit
         hl.define_submap("resize", "reset", function()
           hl.bind("H", hl.dsp.window.resize({ x = -20, y = 0, relative = true }), { repeating = true })
           hl.bind("L", hl.dsp.window.resize({ x = 20, y = 0, relative = true }), { repeating = true })
