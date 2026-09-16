@@ -317,6 +317,20 @@ in
               (mkLua "hl.dsp.window.fullscreen({ mode = \"maximized\", action = \"toggle\" })")
             ];
           }
+          # Window: toggle floating
+          {
+            _args = [
+              "${mainMod} + SHIFT + F"
+              (mkLua "hl.dsp.window.float()")
+            ];
+          }
+          # Window: toggle pin (stays on top, visible on all workspaces)
+          {
+            _args = [
+              "${mainMod} + SHIFT + P"
+              (mkLua "hl.dsp.window.pin()")
+            ];
+          }
           # Window: drag
           {
             _args = [
