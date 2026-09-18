@@ -18,7 +18,7 @@ in
     features.dev.ai.claude-code.enable = mkDefault true;
 
     home.packages = with pkgs; [
-      stable.devenv
+      devenv
       gcc
       vulkan-tools # Graphics debugging tools
     ];
