@@ -125,10 +125,10 @@
               # Hagezi
               "https://cdn.jsdelivr.net/gh/hagezi/dns-blocklists@latest/adblock/ultimate.txt" # Hagezi Ultimate
               # uBlock
-              "https://github.com/uBlockOrigin/uAssets/blob/master/filters/filters.txt"
-              "https://github.com/uBlockOrigin/uAssets/blob/master/filters/filters-2026.txt"
-              "https://github.com/uBlockOrigin/uAssets/blob/master/filters/filters-general.txt"
-              "https://github.com/uBlockOrigin/uAssets/blob/master/filters/filters-mobile.txt"
+              "https://raw.githubusercontent.com/uBlockOrigin/uAssets/refs/heads/master/filters/filters.txt"
+              "https://raw.githubusercontent.com/uBlockOrigin/uAssets/refs/heads/master/filters/filters-general.txt"
+              "https://raw.githubusercontent.com/uBlockOrigin/uAssets/refs/heads/master/filters/filters-mobile.txt"
+              "https://raw.githubusercontent.com/uBlockOrigin/uAssets/refs/heads/master/filters/filters-2026.txt"
               # CIS/Russian
               "https://raw.githubusercontent.com/AdguardTeam/FiltersRegistry/master/filters/filter_1_Russian/filter.txt" # CIS/Russian
               "https://raw.githubusercontent.com/Zalexanninev15/NoADS_RU/main/ads_list_extended_plus.txt"
