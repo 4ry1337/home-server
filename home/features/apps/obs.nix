@@ -1,8 +1,14 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 with lib;
 let
   cfg = config.features.apps.obs;
-in {
+in
+{
   options.features.apps.obs.enable = mkEnableOption "Enable OBS Studio";
 
   config = mkIf cfg.enable {

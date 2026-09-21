@@ -4,7 +4,7 @@
 #
 # Please make sure to change the first couple of lines in your configuration.nix:
 
-# { config, inputs, ouputs, lib, pkgs, ... }:
+# { config, inputs, outputs, lib, pkgs, ... }:
 #
 # {
 #   imports = [ # Include the results of the hardware scan.

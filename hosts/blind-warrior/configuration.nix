@@ -3,8 +3,8 @@
 # https://search.nixos.org/options and in the NixOS manual (`nixos-help`).
 
 {
-  config,
-  lib,
+  # config,
+  # lib,
   pkgs,
   ...
 }:

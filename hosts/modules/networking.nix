@@ -1,4 +1,7 @@
-{ host, pkgs, ... }:
+{
+  pkgs,
+  ...
+}:
 {
   networking = {
     networkmanager.enable = true;

@@ -44,7 +44,6 @@
       self,
       home-manager,
       hardware,
-      dotfiles,
       agenix,
       lanzaboote,
       nixpkgs,

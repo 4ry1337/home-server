@@ -1,5 +1,4 @@
-{ ... }:
-{
+_: {
   networking.firewall = {
     allowedTCPPorts = [ 53 ];
     allowedUDPPorts = [ 53 ];
@@ -108,7 +107,7 @@
           map
             (url: {
               enabled = true;
-              url = url;
+              inherit url;
             })
             [
               # EasyList

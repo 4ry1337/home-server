@@ -1,4 +1,4 @@
-{ ... }:
+_:
 {
   # Static Excalidraw frontend (nginx serving the SPA, listens on :80).
   # Drawings persist in each browser's localStorage — no server-side storage.

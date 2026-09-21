@@ -1,4 +1,9 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 with lib;
 let
   cfg = config.features.apps.media;
@@ -24,7 +29,8 @@ let
     "image/x-panasonic-rw2"
     "image/x-olympus-orf"
   ];
-in {
+in
+{
   options.features.apps.media.enable = mkEnableOption "Enable media applications";
 
   config = mkIf cfg.enable {
