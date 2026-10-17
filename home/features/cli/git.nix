@@ -32,7 +32,7 @@ in
       lazygit = {
         enable = true;
         settings = {
-          gui.authorColors = {
+          gui.theme.authorColors = {
             "Rakhat Yskak" = "orange";
           };
           git.commit.signOff = true;
