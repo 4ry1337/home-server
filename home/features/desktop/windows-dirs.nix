@@ -14,7 +14,6 @@ in
 
     username = mkOption {
       type = types.str;
-      default = "thego";
       description = "Windows username whose user directories are shared with Linux.";
     };
   };

@@ -38,7 +38,7 @@ _: {
       hyprland.enable = true;
       windows-dirs = {
         enable = true;
-        username = "thego";
+        username = "yskak";
       };
     };
   };
