@@ -10,7 +10,7 @@
   home.packages = with pkgs; [
     nautilus
     obsidian
-    stable.spotify
-    stable.telegram-desktop
+    spotify
+    telegram-desktop
   ];
 }
