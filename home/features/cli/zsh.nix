@@ -19,6 +19,12 @@ in
         export NIX_LOG=info
         [ -f /run/agenix/${config.home.username}-secrets ] && source /run/agenix/${config.home.username}-secrets
       '';
+      # Ctrl-X Ctrl-E opens the current command line in $EDITOR
+      initContent = ''
+        autoload -Uz edit-command-line
+        zle -N edit-command-line
+        bindkey '^X^E' edit-command-line
+      '';
       history.size = 10000;
       history.path = "${config.xdg.dataHome}/zsh/history";
       shellAliases = {
