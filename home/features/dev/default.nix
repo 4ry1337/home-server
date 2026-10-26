@@ -9,7 +9,10 @@ let
   cfg = config.features.dev;
 in
 {
-  imports = [ ./ai.nix ];
+  imports = [
+    ./ai.nix
+    ./mobile.nix
+  ];
 
   options.features.dev.enable = mkEnableOption "development toolchain (devenv, compilers)";
 

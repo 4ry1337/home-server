@@ -10,7 +10,10 @@ _: {
     ../features/gaming
   ];
   features = {
-    dev.enable = true;
+    dev = {
+      enable = true;
+      mobile.adb.enable = true;
+    };
     apps = {
       rdp.enable = true;
       media.enable = true;
