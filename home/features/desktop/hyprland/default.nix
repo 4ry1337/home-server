@@ -46,6 +46,7 @@ in
           {
             output = "desc: Samsung Electric Company LS27CG51x H9JW800118";
             scale = 1.25;
+            bitdepth = 10;
           }
           {
             output = "eDP-1";
