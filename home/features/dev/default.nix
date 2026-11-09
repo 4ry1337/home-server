@@ -19,6 +19,7 @@ in
   config = mkIf cfg.enable {
     # common dev sub-features — override per host with `= false`
     features.dev.ai.claude-code.enable = mkDefault true;
+    features.dev.ai.codex.enable = mkDefault true;
 
     home.packages = with pkgs; [
       devenv

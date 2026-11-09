@@ -7,9 +7,11 @@
 }:
 
 {
-  languages.nix = {
-    enable = true;
-    lsp.enable = true;
+  languages = {
+    nix = {
+      enable = true;
+      lsp.enable = true;
+    };
   };
 
   git-hooks.hooks = {
@@ -21,6 +23,7 @@
   packages = with pkgs; [
     nixfmt
     typos-lsp
+    tailwindcss-language-server
   ];
   # See full reference at https://devenv.sh/reference/options/
 }

@@ -492,3 +492,9 @@ Flush all rules (clears everything):
 ```
 sudo nft flush ruleset
 ```
+
+## Clean up unbound
+```
+sudo unbound-control flush_infra all
+sudo unbound-control flush_zone erg.kz
+```
