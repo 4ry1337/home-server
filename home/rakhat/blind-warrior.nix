@@ -10,7 +10,11 @@ _: {
     ../features/gaming
   ];
   features = {
-    dev.enable = true;
+    dev = {
+      enable = true;
+      mobile.adb.enable = true;
+      ai.markitdown.enable = true;
+    };
     apps = {
       media.enable = true;
       obs.enable = true;
