@@ -20,6 +20,7 @@ _: {
       media.enable = true;
       obs.enable = true;
       blender.enable = true;
+      tools.dua.enable = true;
       terminal.alacritty = {
         enable = true;
         theme = "tokyo_night";

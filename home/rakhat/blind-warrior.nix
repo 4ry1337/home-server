@@ -14,6 +14,7 @@ _: {
     apps = {
       media.enable = true;
       obs.enable = true;
+      tools.dua.enable = true;
       terminal.alacritty = {
         enable = true;
         theme = "tokyo_night";

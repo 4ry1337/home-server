@@ -2,11 +2,13 @@
   imports = [
     ./rdp.nix
     ./media.nix
+    ./tools.nix
     ./obs.nix
     ./blender.nix
     ./terminal.nix
     ./browser.nix
   ];
+
   home.packages = with pkgs; [
     nautilus
     obsidian
